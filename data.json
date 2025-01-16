@@ -9,6 +9,16 @@
 			"warrant": ["Pedofília", "Csempészet"],
             "description": "Vékony testalkatú, világos bőrszínű, rövid, sötétbarna hajú. Sötétkék farmernadrágot és fekete bőrcipőt visel, fehér inggel. Mosolygós, de inkább visszafogott, kicsit feszültnek tűnik.",
             "img": "emberek-mugshots/white-man-5.webp"
+        },
+        {
+            "id": 2,
+			"name": "Kálmán Péter",
+			"nationality": "Magyar",
+			"gender": "Férfi",
+			"age": 78,
+			"warrant": [],
+            "description": "Közepes magasságú, vékony férfi, akinek sötétbarna haját már elhalványította az idő. Az arcán érezhetőek az évek nyomai, de még mindig elegáns megjelenésű, mindig öltönyben. Halkan beszél, mozdulatai kifinomultak.",
+            "img": "emberek-mugshots/white-man-6.jpg"
         }
     ]
 }
