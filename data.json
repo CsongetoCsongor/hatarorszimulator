@@ -1,0 +1,14 @@
+{
+    "people": [
+        {
+            "id": 1,
+			"name": "Alaptomos Aladár",
+			"nationality": "Magyar",
+			"gender": "Férfi",
+			"age": 34,
+			"warrant": ["Pedofília", "Csempészet"],
+            "description": "Vékony testalkatú, világos bőrszínű, rövid, sötétbarna hajú. Sötétkék farmernadrágot és fekete bőrcipőt visel, fehér inggel. Mosolygós, de inkább visszafogott, kicsit feszültnek tűnik.",
+            "img": "emberek-mugshots/white-man-5.webp"
+        }
+    ]
+}
