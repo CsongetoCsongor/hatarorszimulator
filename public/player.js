@@ -4,7 +4,7 @@ class Player {
         this.score = score;
         this.mood = mood;
         this.facePack = facePack;
-        this.face = face;
+        this.face = this.getFaceExpression();
         this.gunSkin = gunSkin;
     }
     getFaceExpression() {
