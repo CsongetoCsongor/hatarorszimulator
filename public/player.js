@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Player = void 0;
 class Player {
     constructor(score, mood, facePack, face, gunSkin) {
         this.score = score;
@@ -18,3 +20,4 @@ class Player {
             return "";
     }
 }
+exports.Player = Player;

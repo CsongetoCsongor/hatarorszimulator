@@ -19,3 +19,5 @@ class Person {
         this.imgSource = imgSource;
     }
 }
+
+export { Person };

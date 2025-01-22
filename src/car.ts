@@ -19,3 +19,5 @@ class Car {
         this.imgSource = imgSource;
     }
 }
+
+export { Car };
