@@ -24,4 +24,4 @@ class Player {
     }
 }
 
-export { Player };
+export default { Player };

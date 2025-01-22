@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Person = void 0;
 class Person {
     constructor(id, name, nationality, sex, age, warranted, description, imgSource) {
         this.id = id;
@@ -13,4 +10,4 @@ class Person {
         this.imgSource = imgSource;
     }
 }
-exports.Person = Person;
+export default Person;

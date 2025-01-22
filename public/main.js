@@ -1,4 +1,3 @@
-"use strict";
 /*
 https://www.typescriptlang.org/docs/handbook/intro.html
 https://www.youtube.com/watch?v=asC7jxGW45Q&list=PL6VA7Z5zO0dpy0uvNllS5-zyNNl5otN5f&ab_channel=K%C3%B3db%C3%A1zis
@@ -15,3 +14,5 @@ npx tsc --init
 npx tsc -w
 */
 console.log('ok');
+import processData from "./fetch";
+processData();

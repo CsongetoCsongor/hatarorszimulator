@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,28 +7,46 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const person_1 = require("./person");
-function loadJson() {
+import Person from "./person";
+function loadJsonPersons() {
     return __awaiter(this, void 0, void 0, function* () {
         const url = "http://localhost:3000/people";
         let response = yield fetch(url);
         if (!response.ok) {
             throw new Error(response.statusText);
         }
-        const users = yield response.json();
-        return users.map((user) => new person_1.Person(user.id, user.name, user.nationality, user.sex, user.age, user.warranted, user.description, user.img));
+        const persons = yield response.json();
+        return persons.map((person) => new Person(person.id, person.name, person.nationality, person.sex, person.age, person.warranted, person.description, person.img));
     });
 }
+// async function loadJsonCars(): Promise<Person[]> {
+//     const url: string = "http://localhost:3000/cars";
+//     let response = await fetch(url);
+//     if (!response.ok) {
+//         throw new Error(response.statusText);
+//     }
+//     const cars = await response.json();
+//     return cars.map((car: any) => new Car(
+//         car.id,
+//         car.licenseePlate,
+//         car.model,
+//         car.color,
+//         car.warranted,
+//         car.smuggler,
+//         car.description
+//             ));
+//     ));
+// }
 function processData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield loadJson();
+            const data = yield loadJsonPersons();
             console.log(data);
         }
         catch (error) {
             console.error(error.message);
         }
+        // console.log("fasz");
     });
 }
-processData();
+export default processData;

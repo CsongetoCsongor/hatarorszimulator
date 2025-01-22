@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Car = void 0;
 class Car {
     constructor(id, licenseePlate, model, color, warranted, smuggler, description, imgSource) {
         this.id = id;
@@ -13,4 +10,4 @@ class Car {
         this.imgSource = imgSource;
     }
 }
-exports.Car = Car;
+export default { Car };

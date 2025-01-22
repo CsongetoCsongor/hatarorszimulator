@@ -16,3 +16,11 @@ npx tsc -w
 
 
 console.log('ok');
+
+import  Person  from "./person";
+import  Car  from "./car";
+import  Player  from "./player";
+import  processData  from "./fetch";
+
+processData();
+
