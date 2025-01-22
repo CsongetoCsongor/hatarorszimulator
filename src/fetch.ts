@@ -42,17 +42,17 @@ async function loadJsonPersons(): Promise<Person[]> {
 
 
 async function processData() {
-    try {
-        const data = await loadJsonPersons();
-        console.log(data);
+    // try {
+    //     const data = await loadJsonPersons();
+    //     console.log(data);
         
         
-    }
-    catch (error: any) {
-        console.error(error.message);
-    }
+    // }
+    // catch (error: any) {
+    //     console.error(error.message);
+    // }
 
-    // console.log("fasz");
+    console.log("fasz");
     
 }
 
@@ -60,4 +60,4 @@ async function processData() {
 
 
 
-export default processData ;
+export {processData};

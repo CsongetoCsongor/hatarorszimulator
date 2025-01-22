@@ -14,5 +14,5 @@ npx tsc --init
 npx tsc -w
 */
 console.log('ok');
-import processData from "./fetch";
+import { processData } from "./fetch";
 processData();

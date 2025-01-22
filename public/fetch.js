@@ -39,14 +39,14 @@ function loadJsonPersons() {
 // }
 function processData() {
     return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const data = yield loadJsonPersons();
-            console.log(data);
-        }
-        catch (error) {
-            console.error(error.message);
-        }
-        // console.log("fasz");
+        // try {
+        //     const data = await loadJsonPersons();
+        //     console.log(data);
+        // }
+        // catch (error: any) {
+        //     console.error(error.message);
+        // }
+        console.log("fasz");
     });
 }
-export default processData;
+export { processData };
