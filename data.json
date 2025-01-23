@@ -27,6 +27,7 @@
             "licenseePlate": "GFK-103",
             "model": "Audi A3",
             "color": "Ezüst",
+            "traffic_permit": true,
             "warranted": ["Lopott autó", "Cserbenhagyásos gázolás"],
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",

@@ -28,7 +28,7 @@ function loadJsonCars() {
             throw new Error(response.statusText);
         }
         const cars = yield response.json();
-        return cars.map((car) => new Car(car.id, car.licensePlate, car.model, car.color, car.warranted, car.smuggler, car.description, car.imgSource));
+        return cars.map((car) => new Car(car.id, car.licensePlate, car.model, car.color, car.traffic_permit, car.warranted, car.smuggler, car.description, car.imgSource));
     });
 }
 function getPersons() {
@@ -46,7 +46,7 @@ function getPersons() {
 function getCars() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield loadJsonPersons();
+            const data = yield loadJsonCars();
             console.log(data);
             return data;
         }

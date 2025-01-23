@@ -33,6 +33,7 @@ async function loadJsonCars(): Promise<Person[]> {
         car.licensePlate,
         car.model,
         car.color,
+        car.traffic_permit,
         car.warranted,
         car.smuggler,
         car.description,
@@ -58,7 +59,7 @@ async function getPersons() {
 
 async function getCars() {
     try {
-        const data = await loadJsonPersons();
+        const data = await loadJsonCars();
         console.log(data);
         return data;
         

@@ -6,3 +6,4 @@ import  {getPersons, getCars}  from "./fetch.js";
 
 
 
+getCars();
