@@ -10,4 +10,4 @@ class Car {
         this.imgSource = imgSource;
     }
 }
-export default { Car };
+export default Car;
