@@ -7,7 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import Person from "./person";
+import Person from "./person.js";
+import Car from "./car.js";
 function loadJsonPersons() {
     return __awaiter(this, void 0, void 0, function* () {
         const url = "http://localhost:3000/people";
@@ -19,34 +20,39 @@ function loadJsonPersons() {
         return persons.map((person) => new Person(person.id, person.name, person.nationality, person.sex, person.age, person.warranted, person.description, person.img));
     });
 }
-// async function loadJsonCars(): Promise<Person[]> {
-//     const url: string = "http://localhost:3000/cars";
-//     let response = await fetch(url);
-//     if (!response.ok) {
-//         throw new Error(response.statusText);
-//     }
-//     const cars = await response.json();
-//     return cars.map((car: any) => new Car(
-//         car.id,
-//         car.licenseePlate,
-//         car.model,
-//         car.color,
-//         car.warranted,
-//         car.smuggler,
-//         car.description
-//             ));
-//     ));
-// }
-function processData() {
+function loadJsonCars() {
     return __awaiter(this, void 0, void 0, function* () {
-        // try {
-        //     const data = await loadJsonPersons();
-        //     console.log(data);
-        // }
-        // catch (error: any) {
-        //     console.error(error.message);
-        // }
-        console.log("fasz");
+        const url = "http://localhost:3000/cars";
+        let response = yield fetch(url);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        const cars = yield response.json();
+        return cars.map((car) => new Car(car.id, car.licensePlate, car.model, car.color, car.warranted, car.smuggler, car.description, car.imgSource));
     });
 }
-export { processData };
+function getPersons() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const data = yield loadJsonPersons();
+            console.log(data);
+            return data;
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    });
+}
+function getCars() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const data = yield loadJsonPersons();
+            console.log(data);
+            return data;
+        }
+        catch (error) {
+            console.error(error.message);
+        }
+    });
+}
+export { getPersons, getCars };
