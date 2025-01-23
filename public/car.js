@@ -1,9 +1,10 @@
 class Car {
-    constructor(id, licenseePlate, model, color, warranted, smuggler, description, imgSource) {
+    constructor(id, licensePlate, model, color, traffic_permit, warranted, smuggler, description, imgSource) {
         this.id = id;
-        this.licenseePlate = licenseePlate;
+        this.licensePlate = licensePlate;
         this.model = model;
         this.color = color;
+        this.traffic_permit = traffic_permit;
         this.warranted = warranted;
         this.smuggler = smuggler;
         this.description = description;
