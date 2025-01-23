@@ -5,14 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     const startButton = document.getElementById('startButton');
     const message = document.getElementById('message');
+    const auto = document.getElementById('auto');
     if (!ctx || !startButton || !message) {
         console.error('Canvas context, startButton vagy message nem található!');
         return;
     }
+    function positionElements() {
+        const canvasRect = canvas.getBoundingClientRect();
+        const canvasCenterY = canvasRect.top + canvas.height / 2;
+        // A "message" elem függőleges középre igazítása
+        message.style.position = 'absolute';
+        message.style.top = `${canvasCenterY - message.offsetHeight / 2}px`;
+        message.style.left = `${canvasRect.left + canvas.width / 2 - message.offsetWidth / 2}px`;
+        // Az "auto" elem függőleges középre igazítása
+        auto.style.position = 'absolute';
+        auto.style.top = `${canvasCenterY - auto.offsetHeight / 2}px`;
+        auto.style.left = `${canvasRect.left + canvas.width / 2 - auto.offsetWidth / 2}px`;
+    }
+    // Canvas méretének változása esetén újrapozícionálás
+    window.addEventListener('resize', positionElements);
     // Méretezés a képernyőhöz
     function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.style.marginTop = "";
+        canvas.width = 0.6 * window.innerWidth;
+        canvas.height = 0.3 * window.innerHeight;
         adjustImagePosition();
     }
     // Háttérkép betöltése
@@ -62,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageHeight = 100;
     let y = (canvas.height - imageHeight) / 2; // Kép középre helyezése függőlegesen
     const speedX = 3;
-    const imageObject = new ImageObject(-imageWidth, y, imageWidth, imageHeight, './terv/határőr_terv.png', speedX);
+    const imageObject = new ImageObject(-imageWidth, y, imageWidth, imageHeight, './auto-kepek/audi-oldalnezet.jpg', speedX);
     // Állapotváltozók
     let isMoving = false;
     let hasReachedMiddle = false;
@@ -88,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 hasReachedMiddle = true;
                 isMoving = false;
                 message.style.display = 'block'; // Üzenet megjelenítése
+                auto.style.display = 'block'; // Üzenet megjelenítése
+                positionElements();
             }
         }
         else if (isMoving && !hasReachedEnd) {
@@ -96,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hasReachedEnd = true;
                 cancelAnimationFrame(animationId);
                 message.style.display = 'none'; // Üzenet eltüntetése
+                auto.style.display = 'none'; // Üzenet eltüntetése
             }
         }
         if (!hasReachedEnd) {
@@ -111,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', () => {
         if (hasReachedMiddle && !hasReachedEnd) {
             isMoving = true;
+            auto.style.display = "none";
             animate();
         }
     });

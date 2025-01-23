@@ -15,6 +15,35 @@ button {
     cursor: pointer;
 }
 
-#garazs{
+#message {
     position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    display: none;
+    margin-left: 30%;
+}
+
+#auto {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    display: none;
+    margin-left: 30%;
+}
+
+
+#or{
+    width: 15%;
+    height: 20%;
+
+}
+
+#autokep{
+    width: 30%;
+    height: 15%;
+    margin-left: 30%
 }
