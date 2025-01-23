@@ -5,4 +5,9 @@ import  {getPersons, getCars}  from "./fetch.js";
 
 
 
-
+function generatePersonCarCombination() {
+    
+    
+    
+    
+}

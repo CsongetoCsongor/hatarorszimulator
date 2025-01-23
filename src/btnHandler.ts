@@ -10,13 +10,13 @@ let buttonSearchCar = document.getElementById("atkutatas");
 let buttonGetPapers = document.getElementById("igazolvany");
 
 
-function btnLetPass() {
+// function btnLetPass() {
     
-}
+// }
 
-function btnArrest() {
+// function btnArrest() {
 
-}
+// }
 
 function btnGetPersonData(person: Person) { //Képzelt adatbázisból lekérdezi az ember adatait
     return [person.warranted];

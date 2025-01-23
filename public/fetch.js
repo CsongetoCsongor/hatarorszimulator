@@ -34,9 +34,9 @@ function loadJsonCars() {
 function getPersons() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield loadJsonPersons();
-            console.log(data);
-            return data;
+            const data2 = yield loadJsonPersons();
+            console.log(data2);
+            return data2;
         }
         catch (error) {
             console.error(error.message);
@@ -46,9 +46,9 @@ function getPersons() {
 function getCars() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield loadJsonCars();
-            console.log(data);
-            return data;
+            const data1 = yield loadJsonCars();
+            console.log(data1);
+            return data1;
         }
         catch (error) {
             console.error(error.message);
