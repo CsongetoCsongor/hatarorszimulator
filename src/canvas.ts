@@ -10,31 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Canvas context, startButton vagy message nem található!');
         return;
     }
-    function positionElements() {
-        const canvasRect = canvas.getBoundingClientRect();
-        const canvasCenterY = canvasRect.top + canvas.height / 2;
-    
-        // A "message" elem függőleges középre igazítása
-        message.style.position = 'absolute';
-        message.style.top = `${canvasCenterY - message.offsetHeight / 2}px`;
-        message.style.left = `${canvasRect.left + canvas.width / 2 - message.offsetWidth / 2}px`;
-    
-        // Az "auto" elem függőleges középre igazítása
-        auto.style.position = 'absolute';
-        auto.style.top = `${canvasCenterY - auto.offsetHeight / 2}px`;
-        auto.style.left = `${canvasRect.left + canvas.width / 2 - auto.offsetWidth / 2}px`;
-    }
-    
-    // Canvas méretének változása esetén újrapozícionálás
-    window.addEventListener('resize', positionElements);
 
     // Méretezés a képernyőhöz
     function resizeCanvas() {
-        canvas.style.marginTop = "";
+        canvas.style.marginTop = "20%";
         canvas.width = 0.6*window.innerWidth;
         canvas.height = 0.3*window.innerHeight;
-        adjustImagePosition();
+        // adjustImagePosition();
+        positionElements();
     }
+
+    function positionElements() {
+        const canvasRect = canvas.getBoundingClientRect();
+        const canvasCenterX = canvasRect.left + canvas.width / 2;
+        const canvasCenterY = canvasRect.top + canvas.height / 2;
+
+        // Üzenet pozíciója
+        message.style.top = `${canvasCenterY - message.offsetHeight / 2}px`;
+        message.style.left = `${canvasCenterX - message.offsetWidth / 2}px`;
+
+        // Autó pozíciója
+        auto.style.top = `${canvasCenterY - auto.offsetHeight / 2}px`;
+        auto.style.left = `${canvasCenterX - auto.offsetWidth / 2}px`;
+    }
+    
+    // Canvas méretének változása esetén újrapozícionálás
+    // window.addEventListener('resize', positionElements);
 
     // Háttérkép betöltése
     const background = new Image();

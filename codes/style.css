@@ -2,37 +2,27 @@ body {
     margin: 0;
     overflow: hidden;
 }
+
 canvas {
     display: block;
+    margin-bottom: 5%;
 }
 
 button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
+    margin-left: 1.5%;
+    font-weight: bolder;
+    
 }
 
-#message {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-    display: none;
-    margin-left: 30%;
-}
 
-#auto {
+
+#message, #auto {
     position: absolute;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-    display: none;
-    margin-left: 30%;
+    display: none; /* Alapértelmezett állapotban rejtve */
+    text-align: center;
 }
 
 
@@ -45,5 +35,11 @@ button {
 #autokep{
     width: 30%;
     height: 15%;
-    margin-left: 30%
+    float: right;
+}
+
+#startButton{
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kockaaruhaz.hu%2Flego-kiegeszitok%2Flego-lampak-light%2Flgl-lp41-lego-classic-szilikon-ejjeli-lampa-zold-lgl-lp41.html&psig=AOvVaw3wAbx5zh1Ie2kDe5qzCo0u&ust=1737713578467000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC7ie7Ni4sDFQAAAAAdAAAAABAI');
+    background-position: center;
+    background-size: cover;
 }
