@@ -15,10 +15,12 @@ async function generatePersonCarCombination() {
     if(cars == null) {
         cars = [];
     }
-    const randomPersonNum: number = Math.floor(Math.random() * (persons.length + 1));
-    const randomCarNum: number = Math.floor(Math.random() * (cars.length + 1));
+    const randomPersonNum: number = Math.floor(Math.random() * (persons.length));
+    const randomCarNum: number = Math.floor(Math.random() * (cars.length));
         
     return [persons[randomPersonNum], cars[randomCarNum]];
     
     
 }
+
+export {generatePersonCarCombination};

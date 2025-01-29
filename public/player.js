@@ -1,5 +1,5 @@
 class Player {
-    constructor(score, mood, facePack, face, gunSkin) {
+    constructor(score, mood, facePack, gunSkin) {
         this.score = score;
         this.mood = mood;
         this.facePack = facePack;
@@ -17,4 +17,4 @@ class Player {
             return "";
     }
 }
-export default { Player };
+export default Player;

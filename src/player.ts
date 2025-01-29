@@ -5,7 +5,7 @@ class Player {
     public face: string;
     public gunSkin: string;
 
-    public constructor(score: number, mood: string, facePack: string[], face: string, gunSkin: string) {
+    public constructor(score: number, mood: string, facePack: string[], gunSkin: string) {
         this.score = score;
         this.mood = mood;
         this.facePack = facePack;
@@ -24,4 +24,4 @@ class Player {
     }
 }
 
-export default { Player };
+export default  Player;
