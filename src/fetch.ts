@@ -21,7 +21,7 @@ async function loadJsonPersons(): Promise<Person[]> {
 }
 
 
-async function loadJsonCars(): Promise<Person[]> {
+async function loadJsonCars(): Promise<Car[]> {
     const url: string = "http://localhost:3000/cars";
     let response = await fetch(url);
     if (!response.ok) {
