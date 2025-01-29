@@ -5,9 +5,22 @@ import  {getPersons, getCars}  from "./fetch.js";
 
 
 
-function generatePersonCarCombination() {
+async function generatePersonCarCombination() {
     
-    
+    let persons = await getPersons();
+    if(persons == null) {
+        persons = [];
+    }
+    let cars = await getCars();
+    if(cars == null) {
+        cars = [];
+    }
+    const randomPersonNum: number = Math.floor(Math.random() * (persons.length));
+    const randomCarNum: number = Math.floor(Math.random() * (cars.length));
+        
+    return [persons[randomPersonNum], cars[randomCarNum]];
     
     
 }
+
+export {generatePersonCarCombination};

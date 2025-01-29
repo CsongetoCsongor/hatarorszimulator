@@ -21,7 +21,7 @@ async function loadJsonPersons(): Promise<Person[]> {
 }
 
 
-async function loadJsonCars(): Promise<Person[]> {
+async function loadJsonCars(): Promise<Car[]> {
     const url: string = "http://localhost:3000/cars";
     let response = await fetch(url);
     if (!response.ok) {
@@ -44,9 +44,9 @@ async function loadJsonCars(): Promise<Person[]> {
 
 async function getPersons() {
     try {
-        const data2 = await loadJsonPersons();
-        console.log(data2);
-        return data2;
+        const data1 = await loadJsonPersons();
+        // console.log(data1);
+        return data1;
         
         
     }
@@ -59,9 +59,9 @@ async function getPersons() {
 
 async function getCars() {
     try {
-        const data1 = await loadJsonCars();
-        console.log(data1);
-        return data1;
+        const data2 = await loadJsonCars();
+        // console.log(data2);
+        return data2;
         
         
     }
