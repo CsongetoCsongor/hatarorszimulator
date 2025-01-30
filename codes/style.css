@@ -30,7 +30,7 @@ canvas {
     float: right;
 }
 
-#startBg{
+#startBgdiv{
     background-image: url('/zold.jpg');
     background-position: center;
     background-size: cover;
@@ -39,6 +39,17 @@ canvas {
     border-radius: 8px;
     color: white;
 }
+
+#letartoztatdiv{
+    background-image: url('/racs.avif');
+    background-position: center;
+    background-size: cover;
+    padding: 7%;
+    border: 2px black solid;
+    border-radius: 8px;
+    color: white;
+}
+
 
 .col{
     padding: 10px 20px;
