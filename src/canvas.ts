@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Canvas inicializálás
     const canvas = document.getElementById('animationCanvas') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d');
-    const startButton = document.getElementById('startButton') as HTMLButtonElement;
+    const startButton = document.getElementById('startBgdiv') as HTMLButtonElement;
     const message = document.getElementById('message') as HTMLDivElement;
     const auto = document.getElementById('auto') as HTMLDivElement;
 
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Méretezés a képernyőhöz
     function resizeCanvas() {
-        canvas.style.marginTop = "20%";
-        canvas.width = 0.6*window.innerWidth;
+        canvas.style.marginTop = "10%";
+        canvas.width = 0.5*window.innerWidth;
         canvas.height = 0.3*window.innerHeight;
         // adjustImagePosition();
         positionElements();
