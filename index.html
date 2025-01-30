@@ -1,81 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./codes/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>TS Alapok</title>
 </head>
+
 <body>
-  <div class="mx-4">
-    <div class="row">
-      <div class="col-6">
-    <canvas id="animationCanvas"></canvas>
+    <!-- Quick Time Event -->
+    <div id="quickTimeEventContainer"
+        style="display:none; position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; background-color: rgb(52, 30, 148); z-index: 100;">
+        <h1>Fegyvert rántottak rád!</h1>
+        <div id="weaponSkinContainer" style="position: absolute; top: 20%; left: 30%; width: 40%; height: 40%;"></div>
+        <div id="timer1">
+            <h3>5</h3>
+        </div>
+        <div id="timer1">
+            <h3>5</h3>
+        </div>
+    </div>
 
-    <div id="message"><img id="or" src="emberek-mugshots/black-man-1.jpg" alt=""></div>    
-    <div id="auto"><img id="autokep" src="auto-kepek/audi-oldalnezet.jpg" alt=""></div>    
 
-    <div class="container2 text-center">
-        <div class="row align-items-center">
-          <div class="col">
-            <div id="startBgdiv">
-                <span id="startButton"></span>
+    <div class="mx-4">
+        <div class="row">
+            <div class="col-6">
+                <canvas id="animationCanvas"></canvas>
+
+                <div id="message"><img id="or" src="emberek-mugshots/black-man-1.jpg" alt=""></div>
+                <div id="auto"><img id="autokep" src="auto-kepek/audi-oldalnezet.jpg" alt=""></div>
+
+                <div class="container2 text-center">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div id="startBgdiv">
+                                <span id="startButton"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="letartoztatdiv">
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="emberadatdiv">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container2 text-center">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div id="autoadatdiv">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="atkutatasdiv">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="papirokdiv"></div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-          </div>
-          <div class="col">
-            <div id="letartoztatdiv">
-            
-          </div>
-          </div>
-          <div class="col">
-            <div id="emberadatdiv">
-            
-          </div>
-          </div>
+            <div class="col"></div>
+
+            <div class="col-5">
+                <div class="adatok me-4 mt-4">
+                    <div id="emberkep">
+                        <img class="rounded-circle" src="emberek-mugshots/lightskin-1.jpg" alt="">
+                    </div>
+                    <div class="mt-5" id="szovegesAdatok">
+                        <p class="fw-bold">Személyleírás: </p>
+                        <p class="fw-bold">Gépjárműleírás: </p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto saepe itaque fuga, nam esse
+                            iste sint libero nesciunt commodi enim necessitatibus molestias dignissimos vitae vero quia,
+                            ducimus beatae assumenda natus.
+                            Ipsam ullam quisquam architecto fugit facilis, aliquam molestias hic vel? Quae, asperiores
+                            saepe nam enim dolore rerum delectus alias obcaecati similique adipisci aspernatur suscipit
+                            quidem dolorem hic temporibus odit consequuntur.
+                            Quo, deserunt pariatur voluptate dolores architecto quis reiciendis, eaque aliquam dolorem
+                            vel culpa obcaecati exercitationem? Consequuntur, distinctio neque, perferendis quos
+                            blanditiis ipsum nisi impedit, similique sequi accusamus asperiores fuga temporibus?
+                            Dignissimos provident cumque facilis cum voluptatum, dicta laboriosam sint amet, qui porro
+                            ex dolorum similique hic adipisci, illum quisquam quidem distinctio accusamus molestias
+                            odio? Explicabo error ullam reiciendis odio aut!
+                            Ea non deleniti iste quas autem perspiciatis soluta minus fugit, est alias quis architecto
+                            aliquid consectetur maxime, qui ut cumque animi expedita deserunt nesciunt reprehenderit
+                            laborum excepturi quos commodi. Nulla. Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nemo dolorum nesciunt eligendi iste deleniti dicta, id veritatis quibusdam quisquam
+                            saepe corporis error distinctio quas reprehenderit, nisi maiores voluptatibus repellendus
+                            quam.
+                            Sit culpa repellendus illum corrupti quam libero sequi a recusandae soluta nihil unde,
+                            dolore saepe in officiis quis commodi itaque ipsum .</p>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="container2 text-center">
-        <div class="row align-items-center">
-          <div class="col">
-            <div id="autoadatdiv">
-          </div>
-          </div>
-          <div class="col">
-            <div id="atkutatasdiv">
-          </div>
-          </div>
-          <div class="col">
-            <div id="papirokdiv"></div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="col"></div>
-
-    <div class="col-5">
-      <div class="adatok me-4 mt-4">
-        <div id="emberkep">
-        <img class="rounded-circle" src="emberek-mugshots/lightskin-1.jpg" alt="">
-      </div>
-      <div class="mt-5" id="szovegesAdatok">
-        <p class="fw-bold">Személyleírás: </p>
-        <p class="fw-bold">Gépjárműleírás: </p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto saepe itaque fuga, nam esse iste sint libero nesciunt commodi enim necessitatibus molestias dignissimos vitae vero quia, ducimus beatae assumenda natus.
-        Ipsam ullam quisquam architecto fugit facilis, aliquam molestias hic vel? Quae, asperiores saepe nam enim dolore rerum delectus alias obcaecati similique adipisci aspernatur suscipit quidem dolorem hic temporibus odit consequuntur.
-        Quo, deserunt pariatur voluptate dolores architecto quis reiciendis, eaque aliquam dolorem vel culpa obcaecati exercitationem? Consequuntur, distinctio neque, perferendis quos blanditiis ipsum nisi impedit, similique sequi accusamus asperiores fuga temporibus?
-        Dignissimos provident cumque facilis cum voluptatum, dicta laboriosam sint amet, qui porro ex dolorum similique hic adipisci, illum quisquam quidem distinctio accusamus molestias odio? Explicabo error ullam reiciendis odio aut!
-        Ea non deleniti iste quas autem perspiciatis soluta minus fugit, est alias quis architecto aliquid consectetur maxime, qui ut cumque animi expedita deserunt nesciunt reprehenderit laborum excepturi quos commodi. Nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolorum nesciunt eligendi iste deleniti dicta, id veritatis quibusdam quisquam saepe corporis error distinctio quas reprehenderit, nisi maiores voluptatibus repellendus quam.
-        Sit culpa repellendus illum corrupti quam libero sequi a recusandae soluta nihil unde, dolore saepe in officiis quis commodi itaque ipsum .</p>
-
-      </div>
-
-      </div>
-    </div>
-    </div>
 
 
 
@@ -88,6 +119,7 @@
     <script type="module" src="../public/player.js"></script>
     <script type="module" src="../public/btnHandler.js"></script>
     <script type="module" src="../public/fetch.js"></script>
-    
+
 </body>
+
 </html>
