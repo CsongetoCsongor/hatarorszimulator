@@ -35,3 +35,4 @@ function btnGetPapers(person: Person, car: Car) { //Elkéri az embertől a szem�
 
 }
 
+export {buttonLetPass, buttonArrest, buttonGetPersonData, buttonGetCarData, buttonSearchCar, buttonGetPapers};
