@@ -13,19 +13,39 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function quickTimeEvent(player: Player): any {
-
     let quickTimeEventContainer = document.getElementById("quickTimeEventContainer") as HTMLElement;
     let weaponSkinContainer = document.getElementById("weaponSkinContainer") as HTMLElement;
+
     weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
 
+    let keysDisplay = document.createElement("div");
+    keysDisplay.style.cssText = `
+        margin-top: 10px;
+        padding: 15px;
+        border: 3px solid gold;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        letter-spacing: 10px;
+    `;
+
     let targetSequence = shuffleArray(["W", "A", "S", "D", "E", "Q"]);
-    console.log(targetSequence);
     
+    // Create individual spans for each key
+    keysDisplay.innerHTML = targetSequence.map((key, index) => 
+        `<span id="key-${index}" style="padding: 5px; border-radius: 5px;">${key}</span>`
+    ).join(" ");
+    
+    weaponSkinContainer.insertAdjacentElement('afterend', keysDisplay);
+
     let currentIndex = 0;
     const timeLimit = 5000;
     let startTime = Date.now();
 
-    // Timer to display remaining time
     const timer = setInterval(() => {
         const remainingTime = 5 - ((Date.now() - startTime) / 1000);
         if (remainingTime > 0) {
@@ -48,6 +68,12 @@ function quickTimeEvent(player: Player): any {
         const pressedKey = event.key.toUpperCase();
 
         if (pressedKey === targetSequence[currentIndex]) {
+            // Highlight the current key in green
+            const keyElement = document.getElementById(`key-${currentIndex}`);
+            if (keyElement) {
+                keyElement.style.backgroundColor = '#4CAF50';
+            }
+            
             currentIndex++;
 
             if (currentIndex === targetSequence.length) {
@@ -58,13 +84,21 @@ function quickTimeEvent(player: Player): any {
                 return true;
             }
         } else {
+            // Reset all key backgrounds
+            targetSequence.forEach((_, index) => {
+                const keyElement = document.getElementById(`key-${index}`);
+                if (keyElement) {
+                    keyElement.style.backgroundColor = 'transparent';
+                }
+            });
             currentIndex = 0;
             startTime = currentTime;
         }
     };
 
     window.addEventListener('keydown', keyHandler);
-    
 }
+
+
 
 export { quickTimeEvent };
