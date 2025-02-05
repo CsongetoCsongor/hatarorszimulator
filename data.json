@@ -12,13 +12,73 @@
         },
         {
             "id": 2,
-            "name": "Kálmán Péter",
-            "nationality": "Magyar",
+            "name": "Jürgen Schwartzarbeiten",
+            "nationality": "Német",
             "sex": "Férfi",
             "age": 78,
             "warranted": [],
             "description": "Közepes magasságú, vékony férfi, akinek sötétbarna haját már elhalványította az idő. Az arcán érezhetőek az évek nyomai, de még mindig elegáns megjelenésű, mindig öltönyben. Halkan beszél, mozdulatai kifinomultak.",
             "imgSource": "emberek-mugshots/white-man-6.jpg"
+        },
+        {
+            "id": 3,
+            "name": "DeShawn Green",
+            "nationality": "Zambia",
+            "sex": "Férfi",
+            "age": 42,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-1.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Tyrone Brown",
+            "nationality": "Niger",
+            "sex": "Férfi",
+            "age": 28,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-2.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Terrance Michelangelo",
+            "nationality": "Uganda",
+            "sex": "Férfi",
+            "age": 16,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-3.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Jamal Williams",
+            "nationality": "Elefántcsontpart",
+            "sex": "Férfi",
+            "age": 68,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-4.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Darius Anderson",
+            "nationality": "Amerikai",
+            "sex": "Férfi",
+            "age": 19,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-5.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Daquavious Pork",
+            "nationality": "Kenya",
+            "sex": "Férfi",
+            "age": 53,
+            "warranted": [],
+            "description": "",
+            "imgSource": "emberek-mugshots/black-man-6.webp"
         }
     ],
     "cars": [
@@ -32,6 +92,28 @@
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",
             "imgSource": "auto-kepek/audi-oldalnezet.jpg"
+        },
+        {
+            "id": 2,
+            "licenseePlate": "SRB-982",
+            "model": "BMW i7 M70",
+            "color": "Világoskék",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "Tiszta autó, nemrég moshatták.",
+            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
+        },
+        {
+            "id": 3,
+            "licenseePlate": "FGH-728",
+            "model": "Kisbusz",
+            "color": "Fehér",
+            "traffic_permit": true,
+            "warranted": ["Csempészet"],
+            "smuggler": ["Migrats"],
+            "description": "Kicsit koszos, az oldalán van egy horpadás.",
+            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
         }
     ]
 }
