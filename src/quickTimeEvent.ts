@@ -15,6 +15,8 @@ function shuffleArray<T>(array: T[]): T[] {
 function quickTimeEvent(player: Player): any {
     let quickTimeEventContainer = document.getElementById("quickTimeEventContainer") as HTMLElement;
     let weaponSkinContainer = document.getElementById("weaponSkinContainer") as HTMLElement;
+    let timer1 = document.getElementById("timer1") as HTMLElement;
+    let timer2 = document.getElementById("timer2") as HTMLElement;
 
     weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
 
@@ -35,7 +37,6 @@ function quickTimeEvent(player: Player): any {
 
     let targetSequence = shuffleArray(["W", "A", "S", "D", "E", "Q"]);
     
-    // Create individual spans for each key
     keysDisplay.innerHTML = targetSequence.map((key, index) => 
         `<span id="key-${index}" style="padding: 5px; border-radius: 5px;">${key}</span>`
     ).join(" ");
@@ -49,9 +50,10 @@ function quickTimeEvent(player: Player): any {
     const timer = setInterval(() => {
         const remainingTime = 5 - ((Date.now() - startTime) / 1000);
         if (remainingTime > 0) {
-            console.log(`Time remaining: ${remainingTime.toFixed(1)} seconds`);
+            timer1.textContent = `${remainingTime.toFixed(1)}`;
+            timer2.textContent = `${remainingTime.toFixed(1)}`;
         }
-    }, 1000);
+    }, 100); // Updated to 100ms for smoother updates
 
     const keyHandler = (event: KeyboardEvent) => {
         const currentTime = Date.now();
@@ -59,6 +61,8 @@ function quickTimeEvent(player: Player): any {
 
         if (elapsedTime > timeLimit) {
             console.log("Time's up!");
+            timer1.textContent = "0.0";
+            timer2.textContent = "0.0";
             currentIndex = 0;
             startTime = currentTime;
             clearInterval(timer);
@@ -68,7 +72,6 @@ function quickTimeEvent(player: Player): any {
         const pressedKey = event.key.toUpperCase();
 
         if (pressedKey === targetSequence[currentIndex]) {
-            // Highlight the current key in green
             const keyElement = document.getElementById(`key-${currentIndex}`);
             if (keyElement) {
                 keyElement.style.backgroundColor = '#4CAF50';
@@ -84,7 +87,6 @@ function quickTimeEvent(player: Player): any {
                 return true;
             }
         } else {
-            // Reset all key backgrounds
             targetSequence.forEach((_, index) => {
                 const keyElement = document.getElementById(`key-${index}`);
                 if (keyElement) {
@@ -98,6 +100,7 @@ function quickTimeEvent(player: Player): any {
 
     window.addEventListener('keydown', keyHandler);
 }
+
 
 
 

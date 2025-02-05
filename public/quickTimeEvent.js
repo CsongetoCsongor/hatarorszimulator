@@ -9,6 +9,8 @@ function shuffleArray(array) {
 function quickTimeEvent(player) {
     let quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
     let weaponSkinContainer = document.getElementById("weaponSkinContainer");
+    let timer1 = document.getElementById("timer1");
+    let timer2 = document.getElementById("timer2");
     weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
     let keysDisplay = document.createElement("div");
     keysDisplay.style.cssText = `
@@ -25,7 +27,6 @@ function quickTimeEvent(player) {
         letter-spacing: 10px;
     `;
     let targetSequence = shuffleArray(["W", "A", "S", "D", "E", "Q"]);
-    // Create individual spans for each key
     keysDisplay.innerHTML = targetSequence.map((key, index) => `<span id="key-${index}" style="padding: 5px; border-radius: 5px;">${key}</span>`).join(" ");
     weaponSkinContainer.insertAdjacentElement('afterend', keysDisplay);
     let currentIndex = 0;
@@ -34,14 +35,17 @@ function quickTimeEvent(player) {
     const timer = setInterval(() => {
         const remainingTime = 5 - ((Date.now() - startTime) / 1000);
         if (remainingTime > 0) {
-            console.log(`Time remaining: ${remainingTime.toFixed(1)} seconds`);
+            timer1.textContent = `${remainingTime.toFixed(1)}`;
+            timer2.textContent = `${remainingTime.toFixed(1)}`;
         }
-    }, 1000);
+    }, 100); // Updated to 100ms for smoother updates
     const keyHandler = (event) => {
         const currentTime = Date.now();
         const elapsedTime = currentTime - startTime;
         if (elapsedTime > timeLimit) {
             console.log("Time's up!");
+            timer1.textContent = "0.0";
+            timer2.textContent = "0.0";
             currentIndex = 0;
             startTime = currentTime;
             clearInterval(timer);
@@ -49,7 +53,6 @@ function quickTimeEvent(player) {
         }
         const pressedKey = event.key.toUpperCase();
         if (pressedKey === targetSequence[currentIndex]) {
-            // Highlight the current key in green
             const keyElement = document.getElementById(`key-${currentIndex}`);
             if (keyElement) {
                 keyElement.style.backgroundColor = '#4CAF50';
@@ -64,7 +67,6 @@ function quickTimeEvent(player) {
             }
         }
         else {
-            // Reset all key backgrounds
             targetSequence.forEach((_, index) => {
                 const keyElement = document.getElementById(`key-${index}`);
                 if (keyElement) {
