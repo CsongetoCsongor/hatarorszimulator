@@ -20,4 +20,4 @@ function btnSearchCar(car) {
 function btnGetPapers(person, car) {
     return [person.name, person.age, person.nationality, person.sex, car.traffic_permit];
 }
-export {};
+export { buttonLetPass, buttonArrest, buttonGetPersonData, buttonGetCarData, buttonSearchCar, buttonGetPapers };
