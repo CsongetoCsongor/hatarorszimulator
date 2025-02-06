@@ -46,6 +46,9 @@ async function getPersons() {
     try {
         const data1 = await loadJsonPersons();
         // console.log(data1);
+
+        console.log("api valasz:", data1);
+        
         return data1;
         
         
