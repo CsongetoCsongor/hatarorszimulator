@@ -6,7 +6,7 @@
             "nationality": "Magyar",
             "sex": "Férfi",
             "age": 34,
-            "warranted": ["Pedofília", "Csempészet"],
+            "warranted": ["Csempészet"],
             "description": "Vékony testalkatú, világos bőrszínű, rövid, sötétbarna hajú. Sötétkék farmernadrágot és fekete bőrcipőt visel, fehér inggel. Mosolygós, de inkább visszafogott, kicsit feszültnek tűnik.",
             "imgSource": "emberek-mugshots/white-man-5.webp"
         },
@@ -26,7 +26,7 @@
             "nationality": "Zambia",
             "sex": "Férfi",
             "age": 42,
-            "warranted": [],
+            "warranted": ["Rablás"],
             "description": "Kancsal, kopasz, vékony férfi. Kissé zavartnak tűnik, dadogva beszél. Szakadt ruhákat visel.",
             "imgSource": "emberek-mugshots/black-man-1.jpg"
         },
@@ -45,7 +45,7 @@
             "name": "Terrance Michelangelo",
             "nationality": "Uganda",
             "sex": "Férfi",
-            "age": 16,
+            "age": 17,
             "warranted": [],
             "description": "Tininindzsa kinézetű nagydarab, fekete úriember. Gorilla testalkatával kitölti az autó egészét, alig fér el. Fehér izomtrikó van rajta egy gyerekméretű sapkával ami csak a feje búbját takarja.",
             "imgSource": "emberek-mugshots/black-man-3.png"
@@ -66,7 +66,7 @@
             "nationality": "Amerikai",
             "sex": "Férfi",
             "age": 19,
-            "warranted": [],
+            "warranted": ["Drog birtoklás"],
             "description": "Izmos testalkatú, közepes magasságú férfi. Sok tetoválás van rajta, nyugodtnak tűnik. Öltözete drágának, márkásnak tűnik.",
             "imgSource": "emberek-mugshots/black-man-5.jpg"
         },
@@ -76,7 +76,7 @@
             "nationality": "Kenya",
             "sex": "Férfi",
             "age": 53,
-            "warranted": [],
+            "warranted": ["Pedofília"],
             "description": "Alacsony magasságú, vékony férfi. Furcsa öltözete van és picit furcsán is viselkedik. Suttogva beszél, de különösebb dolgot nem tett.",
             "imgSource": "emberek-mugshots/black-man-6.webp"
         },
@@ -116,7 +116,7 @@
             "nationality": "Britt",
             "sex": "Férfi",
             "age": 23,
-            "warranted": [],
+            "warranted": ["Sorozatgyilkos"],
             "description": "Rövid, barna hajú kikondizott férfi, rendkívül alacsony.",
             "imgSource": "emberek-mugshots/white-man-4.jpg"
         },
@@ -127,7 +127,7 @@
             "sex": "Férfi",
             "age": 29,
             "warranted": [],
-            "description": "Alacsony magasságú, kissé túlsúlyos férfi, haja rövid, barna.",
+            "description": "Vékony, magas, rendkívül helyes úriember, haja szinte kopasz, vannak tetoválásai.",
             "imgSource": "emberek-mugshots/lightskin-1.jpg"
         }
     ],
@@ -137,8 +137,8 @@
             "licenseePlate": "GFK-103",
             "model": "Audi A3",
             "color": "Ezüst",
-            "traffic_permit": true,
-            "warranted": ["Lopott autó", "Cserbenhagyásos gázolás"],
+            "traffic_permit": false,
+            "warranted": ["Lopott autó"],
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",
             "imgSource": "auto-kepek/audi-oldalnezet.jpg"
@@ -149,8 +149,8 @@
             "model": "BMW i7 M70",
             "color": "Világoskék",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
+            "warranted": [],
+            "smuggler": [],
             "description": "Tiszta autó, nemrég moshatták.",
             "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
         },
@@ -171,9 +171,9 @@
             "model": "Ferrari 458 italia",
             "color": "Piros",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Luxus autó, olyan tiszta, hogy szinte világít a naptól.",
             "imgSource": "auto-kepek/ferrari-oldalnezet.jpg"
         },
         {
@@ -182,9 +182,9 @@
             "model": "Ford focus",
             "color": "Ezüst",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Jó állapotú, egészen tiszta autó.",
             "imgSource": "auto-kepek/ford-oldalnezet.jpg"
         },
         {
@@ -193,9 +193,9 @@
             "model": "Hyundai elantra",
             "color": "Ezüst",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Tiszta autó, egy hatalmas karcolással az oldalán.",
             "imgSource": "auto-kepek/hyundai-oldalnezet.jpg"
         },
         {
@@ -204,9 +204,9 @@
             "model": "MAN TGX",
             "color": "Piros",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Nagy kamion egy hatalmas utánfutóval. Kissé koszos, de jó ákllapotúnak tűnik, utánfutó is rendben van.",
             "imgSource": "auto-kepek/kamion-oldalnezet.jpg"
         },
         {
@@ -215,9 +215,9 @@
             "model": "Ford Mustang Shelby GT500",
             "color": "Kék",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Rendkívül szép autó. Tiszta, és jó a hangja",
             "imgSource": "auto-kepek/mustang-oldalnezet.jpg"
         },
         {
@@ -225,10 +225,10 @@
             "licenseePlate": "YZG-289",
             "model": "Opel Astra G",
             "color": "Fehér",
-            "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "traffic_permit": false,
+            "warranted": ["Cserbenhagyásos gázolás"],
+            "smuggler": [],
+            "description": "Behorpadt lökhárító, és motorháztető, viszont elég tiszta.",
             "imgSource": "auto-kepek/opel-oldalnezet.jpg"
         },
         {
@@ -237,9 +237,9 @@
             "model": "Toyota RAV4",
             "color": "Ezüst",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": [],
+            "smuggler": [],
+            "description": "Kicsit koszos, jó állapotú autó.",
             "imgSource": "auto-kepek/toyota-oldalnezet.jpg"
         },
         {
@@ -248,9 +248,9 @@
             "model": "Volkswagen Golf",
             "color": "Fehér",
             "traffic_permit": true,
-            "warranted": [""],
-            "smuggler": [""],
-            "description": "",
+            "warranted": ["Illegális tuningolás"],
+            "smuggler": ["Rengeteg alkohol"],
+            "description": "Tiszta, szép autó, hangja kicsit hangos.",
             "imgSource": "auto-kepek/volkswagen-oldalnezet.png"
         }
     ]
