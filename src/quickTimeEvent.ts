@@ -13,6 +13,9 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 function quickTimeEvent(player: Player): any {
+
+
+
     let quickTimeEventContainer = document.getElementById("quickTimeEventContainer") as HTMLElement;
     let weaponSkinContainer = document.getElementById("weaponSkinContainer") as HTMLElement;
     let timer1 = document.getElementById("timer1") as HTMLElement;
@@ -20,28 +23,17 @@ function quickTimeEvent(player: Player): any {
 
     weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
 
-    let keysDisplay = document.createElement("div");
-    keysDisplay.style.cssText = `
-        margin-top: 10px;
-        padding: 15px;
-        border: 3px solid gold;
-        border-radius: 10px;
-        background: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        letter-spacing: 10px;
-    `;
+
 
     let targetSequence = shuffleArray(["W", "A", "S", "D", "E", "Q"]);
-    
-    keysDisplay.innerHTML = targetSequence.map((key, index) => 
-        `<span id="key-${index}" style="padding: 5px; border-radius: 5px;">${key}</span>`
-    ).join(" ");
-    
-    weaponSkinContainer.insertAdjacentElement('afterend', keysDisplay);
+    console.log(targetSequence);
+
+    let keysContainer = document.getElementById("keysContainer") as HTMLElement;
+    keysContainer.innerHTML = targetSequence.map(key => `${key}`).join('');
+
+    let resultMessage = document.createElement('div');
+    resultMessage.style.cssText = 'text-align: center; color: white; font-size: 24px; margin-top: 20px; font-family: Orbitron; text-shadow: 0 0 5px #4a90e2;';
+    quickTimeEventContainer.appendChild(resultMessage);
 
     let currentIndex = 0;
     const timeLimit = 5000;
@@ -52,23 +44,24 @@ function quickTimeEvent(player: Player): any {
         if (remainingTime > 0) {
             timer1.textContent = `${remainingTime.toFixed(1)}`;
             timer2.textContent = `${remainingTime.toFixed(1)}`;
-        }
-    }, 100); // Updated to 100ms for smoother updates
-
-    const keyHandler = (event: KeyboardEvent) => {
-        const currentTime = Date.now();
-        const elapsedTime = currentTime - startTime;
-
-        if (elapsedTime > timeLimit) {
+        } else {
             console.log("Time's up!");
             timer1.textContent = "0.0";
             timer2.textContent = "0.0";
             currentIndex = 0;
-            startTime = currentTime;
             clearInterval(timer);
-            return false;
+            window.removeEventListener('keydown', keyHandler);
+            resultMessage.textContent = "Quick Time Event Failed";
+            resultMessage.style.color = '#ff4444';
         }
+    }, 100);  // Updated to 100ms for smoother updates
 
+    keysContainer = document.getElementById("keysContainer") as HTMLElement;
+    keysContainer.innerHTML = targetSequence.map((key, index) =>
+        `<div id="key-${index}" class="key"><span>${key}</span></div>`
+    ).join('');
+
+    const keyHandler = (event: KeyboardEvent) => {
         const pressedKey = event.key.toUpperCase();
 
         if (pressedKey === targetSequence[currentIndex]) {
@@ -76,27 +69,27 @@ function quickTimeEvent(player: Player): any {
             if (keyElement) {
                 keyElement.style.backgroundColor = '#4CAF50';
             }
-            
             currentIndex++;
 
             if (currentIndex === targetSequence.length) {
                 console.log("Sequence completed successfully!");
                 currentIndex = 0;
-                startTime = currentTime;
                 clearInterval(timer);
+                resultMessage.textContent = "Quick Time Event Completed";
+                resultMessage.style.color = '#4CAF50';
                 return true;
             }
         } else {
             targetSequence.forEach((_, index) => {
                 const keyElement = document.getElementById(`key-${index}`);
                 if (keyElement) {
-                    keyElement.style.backgroundColor = 'transparent';
+                    keyElement.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
                 }
             });
             currentIndex = 0;
-            startTime = currentTime;
         }
     };
+
 
     window.addEventListener('keydown', keyHandler);
 }
