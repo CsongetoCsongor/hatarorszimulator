@@ -12,13 +12,123 @@
         },
         {
             "id": 2,
-            "name": "Kálmán Péter",
-            "nationality": "Magyar",
+            "name": "Jürgen Schwartzarbeiten",
+            "nationality": "Német",
             "sex": "Férfi",
             "age": 78,
             "warranted": [],
-            "description": "Közepes magasságú, vékony férfi, akinek sötétbarna haját már elhalványította az idő. Az arcán érezhetőek az évek nyomai, de még mindig elegáns megjelenésű, mindig öltönyben. Halkan beszél, mozdulatai kifinomultak.",
+            "description": "Közepes magasságú, vékony férfi, akinek sötétbarna haját már elhalványította az idő. Az arcán érezhetőek az évek nyomai, de még mindig elegáns megjelenésű, öltönyben. Halkan beszél, mozdulatai kifinomultak.",
             "imgSource": "emberek-mugshots/white-man-6.jpg"
+        },
+        {
+            "id": 3,
+            "name": "DeShawn Green",
+            "nationality": "Zambia",
+            "sex": "Férfi",
+            "age": 42,
+            "warranted": [],
+            "description": "Kancsal, kopasz, vékony férfi. Kissé zavartnak tűnik, dadogva beszél. Szakadt ruhákat visel.",
+            "imgSource": "emberek-mugshots/black-man-1.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Tyrone Brown",
+            "nationality": "Niger",
+            "sex": "Férfi",
+            "age": 28,
+            "warranted": [],
+            "description": "Közepesen magas, kissé túlsúlyos férfi. Mosolygós, jó kedvűnek tűnik.",
+            "imgSource": "emberek-mugshots/black-man-2.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Terrance Michelangelo",
+            "nationality": "Uganda",
+            "sex": "Férfi",
+            "age": 16,
+            "warranted": [],
+            "description": "Tininindzsa kinézetű nagydarab, fekete úriember. Gorilla testalkatával kitölti az autó egészét, alig fér el. Fehér izomtrikó van rajta egy gyerekméretű sapkával ami csak a feje búbját takarja.",
+            "imgSource": "emberek-mugshots/black-man-3.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Jamal Williams",
+            "nationality": "Elefántcsontpart",
+            "sex": "Férfi",
+            "age": 68,
+            "warranted": [],
+            "description": "Közepes magasságú, vékony férfi. Ingben, zakóban van, jóvágású úriember.",
+            "imgSource": "emberek-mugshots/black-man-4.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Darius Anderson",
+            "nationality": "Amerikai",
+            "sex": "Férfi",
+            "age": 19,
+            "warranted": [],
+            "description": "Izmos testalkatú, közepes magasságú férfi. Sok tetoválás van rajta, nyugodtnak tűnik. Öltözete drágának, márkásnak tűnik.",
+            "imgSource": "emberek-mugshots/black-man-5.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Daquavious Pork",
+            "nationality": "Kenya",
+            "sex": "Férfi",
+            "age": 53,
+            "warranted": [],
+            "description": "Alacsony magasságú, vékony férfi. Furcsa öltözete van és picit furcsán is viselkedik. Suttogva beszél, de különösebb dolgot nem tett.",
+            "imgSource": "emberek-mugshots/black-man-6.webp"
+        },
+        {
+            "id": 9,
+            "name": "Christopher Thompson",
+            "nationality": "Amerikai",
+            "sex": "Férfi",
+            "age": 43,
+            "warranted": [],
+            "description": "Alacsony magasságú, kissé túlsúlyos férfi, haja rövid, barna. Le akart pacsizni veled.",
+            "imgSource": "emberek-mugshots/white-man-1.png"
+        },
+        {
+            "id": 10,
+            "name": "Krizantusz Takács",
+            "nationality": "Magyar",
+            "sex": "Férfi",
+            "age": 54,
+            "warranted": [],
+            "description": "Közepes magasságú férfi, haja szinte sárga, rövid. Fogai hatalmasak, nem tesz egyéb dolgot, normálisan viselkedik.",
+            "imgSource": "emberek-mugshots/white-man-2.png"
+        },
+        {
+            "id": 11,
+            "name": "Nintendo Rostás",
+            "nationality": "Magyar",
+            "sex": "Férfi",
+            "age": 60,
+            "warranted": [],
+            "description": "Magas vékony férfi, hosszú őszülő szőke haja van. Nem sokat aludhatott, igen megviseltnek tűnik.",
+            "imgSource": "emberek-mugshots/white-man-3.png"
+        },
+        {
+            "id": 12,
+            "name": "Chris Walker",
+            "nationality": "Britt",
+            "sex": "Férfi",
+            "age": 23,
+            "warranted": [],
+            "description": "Rövid, barna hajú kikondizott férfi, rendkívül alacsony.",
+            "imgSource": "emberek-mugshots/white-man-4.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Rafael Hart",
+            "nationality": "Amerikai",
+            "sex": "Férfi",
+            "age": 29,
+            "warranted": [],
+            "description": "Alacsony magasságú, kissé túlsúlyos férfi, haja rövid, barna.",
+            "imgSource": "emberek-mugshots/lightskin-1.jpg"
         }
     ],
     "cars": [
@@ -32,6 +142,116 @@
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",
             "imgSource": "auto-kepek/audi-oldalnezet.jpg"
+        },
+        {
+            "id": 2,
+            "licenseePlate": "SRB-982",
+            "model": "BMW i7 M70",
+            "color": "Világoskék",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "Tiszta autó, nemrég moshatták.",
+            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
+        },
+        {
+            "id": 3,
+            "licenseePlate": "FGH-728",
+            "model": "Kisbusz",
+            "color": "Fehér",
+            "traffic_permit": true,
+            "warranted": ["Csempészet"],
+            "smuggler": ["Migrats"],
+            "description": "Kicsit koszos, az oldalán van egy horpadás.",
+            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
+        },
+        {
+            "id": 4,
+            "licenseePlate": "AKL-922",
+            "model": "Ferrari 458 italia",
+            "color": "Piros",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/ferrari-oldalnezet.jpg"
+        },
+        {
+            "id": 5,
+            "licenseePlate": "DHJ-334",
+            "model": "Ford focus",
+            "color": "Ezüst",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/ford-oldalnezet.jpg"
+        },
+        {
+            "id": 6,
+            "licenseePlate": "BTF-574",
+            "model": "Hyundai elantra",
+            "color": "Ezüst",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/hyundai-oldalnezet.jpg"
+        },
+        {
+            "id": 7,
+            "licenseePlate": "XRE-928",
+            "model": "MAN TGX",
+            "color": "Piros",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/kamion-oldalnezet.jpg"
+        },
+        {
+            "id": 8,
+            "licenseePlate": "POL-783",
+            "model": "Ford Mustang Shelby GT500",
+            "color": "Kék",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/mustang-oldalnezet.jpg"
+        },
+        {
+            "id": 9,
+            "licenseePlate": "YZG-289",
+            "model": "Opel Astra G",
+            "color": "Fehér",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/opel-oldalnezet.jpg"
+        },
+        {
+            "id": 10,
+            "licenseePlate": "ZIK-012",
+            "model": "Toyota RAV4",
+            "color": "Ezüst",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/toyota-oldalnezet.jpg"
+        },
+        {
+            "id": 11,
+            "licenseePlate": "GFL-174",
+            "model": "Volkswagen Golf",
+            "color": "Fehér",
+            "traffic_permit": true,
+            "warranted": [""],
+            "smuggler": [""],
+            "description": "",
+            "imgSource": "auto-kepek/volkswagen-oldalnezet.png"
         }
     ]
 }
