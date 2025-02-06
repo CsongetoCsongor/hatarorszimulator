@@ -15,12 +15,17 @@ async function generatePersonCarCombination() {
     if(cars == null) {
         cars = [];
     }
+
+    console.log("generalas elott:", persons);
+    
     const randomPersonNum: number = Math.floor(Math.random() * (persons.length));
     const randomCarNum: number = Math.floor(Math.random() * (cars.length));
         
+    console.log('szemely:', persons[randomPersonNum]);
     return [persons[randomPersonNum], cars[randomCarNum]];
+    
     
     
 }
 
-export {generatePersonCarCombination};
+export  {generatePersonCarCombination};
