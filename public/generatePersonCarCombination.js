@@ -18,8 +18,10 @@ function generatePersonCarCombination() {
         if (cars == null) {
             cars = [];
         }
+        console.log("generalas elott:", persons);
         const randomPersonNum = Math.floor(Math.random() * (persons.length));
         const randomCarNum = Math.floor(Math.random() * (cars.length));
+        console.log('szemely:', persons[randomPersonNum]);
         return [persons[randomPersonNum], cars[randomCarNum]];
     });
 }
