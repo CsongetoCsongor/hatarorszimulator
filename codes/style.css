@@ -115,6 +115,7 @@ canvas {
     padding: 5%;
     background-image: url('/adatokhatter.jpg');
     background-position: center;
+    min-height: 90vh;
 
 }
 

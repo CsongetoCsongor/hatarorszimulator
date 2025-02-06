@@ -16,7 +16,7 @@ async function loadJsonPersons(): Promise<Person[]> {
         person.age,
         person.warranted,
         person.description,
-        person.img
+        person.imgSource
     ));
 }
 
@@ -30,7 +30,7 @@ async function loadJsonCars(): Promise<Car[]> {
     const cars = await response.json();
     return cars.map((car: any) => new Car(
         car.id,
-        car.licensePlate,
+        car.licenseePlate,
         car.model,
         car.color,
         car.traffic_permit,

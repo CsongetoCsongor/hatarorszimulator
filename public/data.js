@@ -10,15 +10,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
 const personDescript = document.getElementById("personDescript");
 const emberkep = document.getElementById("emberkep");
-function showData(person) {
-    personDescript.innerHTML = person.description;
-    emberkep.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="Személy képe" />>`;
+const carDescript = document.getElementById("carDescript");
+const carColor = document.getElementById("carColor");
+const carPlate = document.getElementById("carPlate");
+const carModel = document.getElementById("carModel");
+const autokep = document.getElementById("autokepAdatlap");
+function showData(person, car) {
+    personDescript.innerHTML += person.description;
+    emberkep.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="Személy képe" />`;
+    carDescript.innerHTML += car.description;
+    carColor.innerHTML += car.color;
+    carPlate.innerHTML += car.licensePlate;
+    carModel.innerHTML += car.model;
+    console.log(autokep);
+    autokep.innerHTML = `<img class="rounded-circle" src="${car.imgSource}" alt="Autó képe" />`;
 }
 ;
 function loadPersonData() {
     return __awaiter(this, void 0, void 0, function* () {
         const [person, car] = yield generatePersonCarCombination();
-        showData(person);
+        showData(person, car);
     });
 }
 loadPersonData();
