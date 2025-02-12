@@ -224,12 +224,12 @@
             "id": 9,
             "licenseePlate": "YZG-289",
             "model": "Opel Astra G",
-            "color": "Fehér",
+            "color": "Piros",
             "traffic_permit": false,
             "warranted": ["Cserbenhagyásos gázolás"],
             "smuggler": [],
             "description": "Behorpadt lökhárító, és motorháztető, viszont elég tiszta.",
-            "imgSource": "auto-kepek/opel-oldalnezet.jpg"
+            "imgSource": "auto-kepek/opel-oldalnezet.avif"
         },
         {
             "id": 10,
