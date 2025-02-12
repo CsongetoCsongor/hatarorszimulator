@@ -99,17 +99,3 @@ function quickTimeEvent(player: Player): any {
 
 export { quickTimeEvent };
 
-// <div id="quickTimeEventContainer"
-// style="position: absolute; z-index:100; top: 10%; left: 10%; width: 80%; height: 80%; background-image: url(./kepek/quictime-event-bg-pic.jpg); background-size: cover;background-repeat: no-repeat;">
-// <h1 class="text-center mb-5 mt-3" style="color: white; font-size: 60px;">Fegyvert rántottak rád!</h1>
-
-// <div class="row align-items-center">
-//     <div class="col-4 text-center"><h1 id="timer1" style="color: white; font-size: 160px;">5</h1></div>
-//     <div class="col-4 " id="weaponSkinContainer" style="transform: scaleX(-1);"></div>
-//     <div class="col-4 text-center"><h1 id="timer2" style="color: white; font-size: 160px;">5</h1></div>
-// </div>
-// <div class="row align-items-center d-flex justify-content-center text-center">
-//     <div class="col-12 text-center justify-content-center align-items-center mt-5" id="keysContainer"></div>
-// </div>
-
-// </div>
