@@ -141,7 +141,7 @@
             "warranted": ["Lopott autó"],
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",
-            "imgSource": "auto-kepek/audi-oldalnezet.jpg"
+            "imgSource": "auto-kepek/audi-oldalnezet.png"
         },
         {
             "id": 2,
@@ -152,7 +152,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Tiszta autó, nemrég moshatták.",
-            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
+            "imgSource": "auto-kepek/bmw-oldalnezet.png"
         },
         {
             "id": 3,
@@ -163,7 +163,7 @@
             "warranted": ["Csempészet"],
             "smuggler": ["Migrats"],
             "description": "Kicsit koszos, az oldalán van egy horpadás.",
-            "imgSource": "auto-kepek/bmw-oldalnezet.jpg"
+            "imgSource": "auto-kepek/bmw-oldalnezet.png"
         },
         {
             "id": 4,
@@ -174,7 +174,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Luxus autó, olyan tiszta, hogy szinte világít a naptól.",
-            "imgSource": "auto-kepek/ferrari-oldalnezet.jpg"
+            "imgSource": "auto-kepek/ferrari-oldalnezet.png"
         },
         {
             "id": 5,
@@ -185,7 +185,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Jó állapotú, egészen tiszta autó.",
-            "imgSource": "auto-kepek/ford-oldalnezet.jpg"
+            "imgSource": "auto-kepek/ford-oldalnezet.png"
         },
         {
             "id": 6,
@@ -196,7 +196,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Tiszta autó, egy hatalmas karcolással az oldalán.",
-            "imgSource": "auto-kepek/hyundai-oldalnezet.jpg"
+            "imgSource": "auto-kepek/hyundai-oldalnezet.png"
         },
         {
             "id": 7,
@@ -207,7 +207,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Nagy kamion egy hatalmas utánfutóval. Kissé koszos, de jó ákllapotúnak tűnik, utánfutó is rendben van.",
-            "imgSource": "auto-kepek/kamion-oldalnezet.jpg"
+            "imgSource": "auto-kepek/kamion-oldalnezet.png"
         },
         {
             "id": 8,
@@ -218,7 +218,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Rendkívül szép autó. Tiszta, és jó a hangja",
-            "imgSource": "auto-kepek/mustang-oldalnezet.jpg"
+            "imgSource": "auto-kepek/mustang-oldalnezet.png"
         },
         {
             "id": 9,
@@ -229,7 +229,7 @@
             "warranted": ["Cserbenhagyásos gázolás"],
             "smuggler": [],
             "description": "Behorpadt lökhárító, és motorháztető, viszont elég tiszta.",
-            "imgSource": "auto-kepek/opel-oldalnezet.jpg"
+            "imgSource": "auto-kepek/opel-oldalnezet.png"
         },
         {
             "id": 10,
@@ -240,7 +240,7 @@
             "warranted": [],
             "smuggler": [],
             "description": "Kicsit koszos, jó állapotú autó.",
-            "imgSource": "auto-kepek/toyota-oldalnezet.jpg"
+            "imgSource": "auto-kepek/toyota-oldalnezet.png"
         },
         {
             "id": 11,

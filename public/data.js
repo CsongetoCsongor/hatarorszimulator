@@ -23,7 +23,7 @@ function showData(person, car) {
     carPlate.innerHTML += car.licensePlate;
     carModel.innerHTML += car.model;
     console.log(autokep);
-    autokep.innerHTML = `<img class="rounded-circle" src="${car.imgSource}" alt="Autó képe" />`;
+    autokep.innerHTML = `<img class="rounded-5" src="${car.imgSource}" alt="Autó képe" />`;
 }
 ;
 function loadPersonData() {
