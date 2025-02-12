@@ -1,9 +1,13 @@
-# Heading One **Határőr szimulátor**
+# **Határőr szimulátor**
 
-# Heading Two **Játék leírás**
+# **Játék leírás**
 
 A haárőr szimulátor egy olyan játék amelyben Ön a határőr és különböző emberek jönnek. Ki kell találnia, hogy kit lehet átengedni és kit nem az adatoknak megfelelően.
 
-# Heading Three **Játék menete**
+# **Játék menete**
 
-A haárőr szimulátorban 
+A haárőr szimulátorban balról jönnek be a személyek autóval és megállnak ön előtt.
+Egy személyleírés és egy autóleírást kap, mely után a következőket teheti:
+
+>
+
