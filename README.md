@@ -15,12 +15,12 @@
     - Miután megtörténik a letartóztatás kiderül, hogy jól döntött-e.
   - #### Elkéri a személyigazolványát:
     - Miután elkérte az illető személyigazolványát mégtöbb adathoz fog hozzáférni, akár ahhoz is, hogy körözik-e.
-  - #### Elkéri az autó papírjait:
+  - #### Lekéri az autó adatait:
     - Miután elkérte az autó papírjait mégtöbb adathoz fog hozzáférni, akár ahhoz is, hogy az autó lopott-e.
   - #### Autó átnézése:
-    - TODO
-  - #### Autó átkutatása:
-    - TODO
+    - Kiderül hogy az adott ember csempész-e vagy nem.
+  - #### Autó papírjainak elkérése:
+    - Elkéri az autó papírjait, például, hogy van e forgalmija.
 
 ## **Cél:**
 
