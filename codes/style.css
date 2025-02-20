@@ -30,6 +30,7 @@ canvas {
     width: 30%;
     height: 15%;
     float: right;
+    
 }
 
 #startBgdiv{
@@ -131,6 +132,10 @@ canvas {
     width: 30%;
     border: solid 3px rgb(97, 110, 138);
 
+}
+
+#animationCanvas{
+    background-image: url('ut2.jpg');
 }
 
 
