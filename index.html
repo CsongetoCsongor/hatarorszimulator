@@ -11,11 +11,11 @@
     <title>TS Alapok</title>
 </head>
 
-<body>
+<body style="background: rgb(14,0,255);background: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 85%, rgba(255,0,0,1) 100%);"></body>
 
     <!-- Quick Time Event -->
     <div id="quickTimeEventContainer"
-        style="position: absolute; z-index:100; top: 10%; left: 10%; width: 80%; height: 80%; background-image: url(./kepek/quictime-event-bg-pic.jpg); background-size: cover;background-repeat: no-repeat;">
+        style="display:none;position: absolute; z-index:100; top: 10%; left: 10%; width: 80%; height: 80%; background-image: url(./kepek/quictime-event-bg-pic.jpg); background-size: cover;background-repeat: no-repeat;">
         <h1 class="text-center mb-5 mt-3" style="color: white; font-size: 60px;">Fegyvert rántottak rád!</h1>
 
         <div class="row align-items-center">
@@ -75,6 +75,16 @@
                             <div id="papirokdiv"></div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row mb-5 mx-3" id="shop" style="position: fixed; bottom: 0; width:fit-content; color: white;">  
+                    <div class="col-5" style="border: solid 3px white; width: fit-content;">
+                        <h3>Előző kör:</h3>
+                        <p id="prevRoundMessage">Sikeresen elfogtál egy bűnözőt.</p>
+                        <p id="prevRoundReward">+10000 Ft</p>
+                    </div>
+                    <div class="col-1 mx-3" style="width:100px;height:100px;margin:auto; margin-bottom: 0; background-image: url(./kepek/shop_image.png); background-size: cover;background-repeat: no-repeat;"></div>
+                    <div class="col-3" style="font-size: 50px; text-align: center; margin: auto; margin-bottom: 0; width: fit-content;">10000000 Ft</div>
                 </div>
 
 
