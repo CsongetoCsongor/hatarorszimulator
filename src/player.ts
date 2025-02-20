@@ -2,14 +2,13 @@ class Player {
     public score: number;
     public mood: string;
     public facePack: string[];
-    public face: string;
+
     public gunSkin: string;
 
     public constructor(score: number, mood: string, facePack: string[], gunSkin: string) {
         this.score = score;
         this.mood = mood;
         this.facePack = facePack;
-        this.face = this.getFaceExpression();
         this.gunSkin = gunSkin;
     }
 

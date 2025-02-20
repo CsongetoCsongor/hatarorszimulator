@@ -3,7 +3,6 @@ class Player {
         this.score = score;
         this.mood = mood;
         this.facePack = facePack;
-        this.face = this.getFaceExpression();
         this.gunSkin = gunSkin;
     }
     getFaceExpression() {
