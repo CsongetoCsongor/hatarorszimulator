@@ -1,85 +1,87 @@
-function shuffleArray(array) {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
 function quickTimeEvent(player) {
-    let quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
-    let weaponSkinContainer = document.getElementById("weaponSkinContainer");
-    let timer1 = document.getElementById("timer1");
-    let timer2 = document.getElementById("timer2");
-    weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
-    let targetSequence = shuffleArray(["W", "A", "S", "D", "E", "Q"]);
-    console.log(targetSequence);
-    let keysContainer = document.getElementById("keysContainer");
-    keysContainer.innerHTML = targetSequence.map(key => `${key}`).join('');
-    let resultMessage = document.createElement('div');
-    resultMessage.style.cssText = 'text-align: center; color: white; font-size: 24px; margin-top: 20px; font-family: Orbitron; text-shadow: 0 0 5px #4a90e2;';
-    quickTimeEventContainer.appendChild(resultMessage);
-    let currentIndex = 0;
-    const timeLimit = 5000;
-    let startTime = Date.now();
-    const timer = setInterval(() => {
-        const remainingTime = 5 - ((Date.now() - startTime) / 1000);
-        if (remainingTime > 0) {
-            timer1.textContent = `${remainingTime.toFixed(1)}`;
-            timer2.textContent = `${remainingTime.toFixed(1)}`;
+    return new Promise((resolve) => {
+        let quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
+        let weaponSkinContainer = document.getElementById("weaponSkinContainer");
+        let timer1 = document.getElementById("timer1");
+        let timer2 = document.getElementById("timer2");
+        weaponSkinContainer.innerHTML = `<img src=${player.gunSkin} style="width: 100%; height: 100%;">`;
+        // Randomly choose a number of letters between 4 and 7
+        const numLetters = Math.floor(Math.random() * 4) + 4; // This will generate a number between 4 and 7
+        console.log(`Random number of letters: ${numLetters}`);
+        // Create a sequence of random letters, allowing repetition
+        let targetSequence = [];
+        const availableKeys = ["W", "A", "S", "D", "E", "Q"];
+        for (let i = 0; i < numLetters; i++) {
+            targetSequence.push(availableKeys[Math.floor(Math.random() * availableKeys.length)]);
         }
-        else {
-            console.log("Time's up!");
-            timer1.textContent = "0.0";
-            timer2.textContent = "0.0";
-            currentIndex = 0;
-            clearInterval(timer);
-            window.removeEventListener('keydown', keyHandler);
-            resultMessage.textContent = "Quick Time Event Failed";
-            resultMessage.style.color = '#ff4444';
-        }
-    }, 100); // Updated to 100ms for smoother updates
-    keysContainer = document.getElementById("keysContainer");
-    keysContainer.innerHTML = targetSequence.map((key, index) => `<div id="key-${index}" class="key"><span>${key}</span></div>`).join('');
-    const keyHandler = (event) => {
-        const pressedKey = event.key.toUpperCase();
-        if (pressedKey === targetSequence[currentIndex]) {
-            const keyElement = document.getElementById(`key-${currentIndex}`);
-            if (keyElement) {
-                keyElement.style.backgroundColor = '#4CAF50';
+        // Shuffle the array to randomize the order
+        targetSequence = shuffleArray(targetSequence);
+        console.log(targetSequence);
+        let keysContainer = document.getElementById("keysContainer");
+        keysContainer.innerHTML = targetSequence.map(key => `${key}`).join('');
+        let resultMessage = document.createElement('div');
+        resultMessage.style.cssText = 'text-align: center; color: white; font-size: 24px; margin-top: 20px; font-family: Orbitron; text-shadow: 0 0 5px #4a90e2;';
+        quickTimeEventContainer.appendChild(resultMessage);
+        let currentIndex = 0;
+        const timeLimit = 5000;
+        let startTime = Date.now();
+        const timer = setInterval(() => {
+            const remainingTime = 5 - ((Date.now() - startTime) / 1000);
+            if (remainingTime > 0) {
+                timer1.textContent = `${remainingTime.toFixed(1)}`;
+                timer2.textContent = `${remainingTime.toFixed(1)}`;
             }
-            currentIndex++;
-            if (currentIndex === targetSequence.length) {
-                console.log("Sequence completed successfully!");
+            else {
+                console.log("Time's up!");
+                timer1.textContent = "0.0";
+                timer2.textContent = "0.0";
                 currentIndex = 0;
                 clearInterval(timer);
-                resultMessage.textContent = "Quick Time Event Completed";
-                resultMessage.style.color = '#4CAF50';
-                return true;
+                window.removeEventListener('keydown', keyHandler);
+                resultMessage.textContent = "Quick Time Event Failed";
+                resultMessage.style.color = '#ff4444';
+                resolve(false);
             }
-        }
-        else {
-            targetSequence.forEach((_, index) => {
-                const keyElement = document.getElementById(`key-${index}`);
+        }, 100);
+        keysContainer = document.getElementById("keysContainer");
+        keysContainer.innerHTML = targetSequence.map((key, index) => `<div id="key-${index}" class="key"><span>${key}</span></div>`).join('');
+        const keyHandler = (event) => {
+            const pressedKey = event.key.toUpperCase();
+            if (pressedKey === targetSequence[currentIndex]) {
+                const keyElement = document.getElementById(`key-${currentIndex}`);
                 if (keyElement) {
-                    keyElement.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                    keyElement.style.backgroundColor = '#4CAF50';
                 }
-            });
-            currentIndex = 0;
-        }
-    };
-    window.addEventListener('keydown', keyHandler);
+                currentIndex++;
+                if (currentIndex === targetSequence.length) {
+                    console.log("Sequence completed successfully!");
+                    currentIndex = 0;
+                    clearInterval(timer);
+                    window.removeEventListener('keydown', keyHandler);
+                    resultMessage.textContent = "Quick Time Event Completed";
+                    resultMessage.style.color = '#4CAF50';
+                    resolve(true);
+                }
+            }
+            else {
+                targetSequence.forEach((_, index) => {
+                    const keyElement = document.getElementById(`key-${index}`);
+                    if (keyElement) {
+                        keyElement.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                    }
+                });
+                currentIndex = 0;
+            }
+        };
+        window.addEventListener('keydown', keyHandler);
+    });
+}
+// Shuffle function (this is a helper for randomizing the array)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 export { quickTimeEvent };
-// <div id="quickTimeEventContainer"
-// style="position: absolute; z-index:100; top: 10%; left: 10%; width: 80%; height: 80%; background-image: url(./kepek/quictime-event-bg-pic.jpg); background-size: cover;background-repeat: no-repeat;">
-// <h1 class="text-center mb-5 mt-3" style="color: white; font-size: 60px;">Fegyvert rántottak rád!</h1>
-// <div class="row align-items-center">
-//     <div class="col-4 text-center"><h1 id="timer1" style="color: white; font-size: 160px;">5</h1></div>
-//     <div class="col-4 " id="weaponSkinContainer" style="transform: scaleX(-1);"></div>
-//     <div class="col-4 text-center"><h1 id="timer2" style="color: white; font-size: 160px;">5</h1></div>
-// </div>
-// <div class="row align-items-center d-flex justify-content-center text-center">
-//     <div class="col-12 text-center justify-content-center align-items-center mt-5" id="keysContainer"></div>
-// </div>
-// </div>
