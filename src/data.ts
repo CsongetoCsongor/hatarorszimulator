@@ -264,6 +264,9 @@ import Person from "./person.js";
 import Car from "./car.js";
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
 
+let currentPerson: Person;
+let currentCar: Car;
+
 let carImgSource: string;
 
 const personDescript = document.getElementById("personDescript");
@@ -302,6 +305,8 @@ function showData(person: Person, car: Car) {
 
 async function loadPersonData() {
     const [person, car] = await generatePersonCarCombination();
+    currentPerson = person as Person;
+    currentCar = car as Car;
     showData(person as Person, car as Car);
 
     if (!carImgSource) {
@@ -336,7 +341,13 @@ function initializeAnimation() {
         console.log("kisfaszu");
         
         ctx!.clearRect(0, 0, canvas.width, canvas.height);
-        actionText.innerText = "Letartóztattad a kriminális bűnözőt!";
+        if(currentPerson.warranted.length > 0) {
+            actionText.innerText = "Letartóztattad a kriminális bűnözőt!";
+        }
+        else {
+            actionText.innerText = "Ártatlan embert tartóztattál le.";
+        }
+        
 
         
         setTimeout(() => {
