@@ -11,6 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
+let currentPerson;
+let currentCar;
+if (!localStorage.getItem('borderControlBalance')) {
+    localStorage.setItem('borderControlBalance', '1000');
+    const balanceDiv = document.getElementById('balanceDiv');
+    balanceDiv.innerHTML = `1000 Ft`;
+}
+else {
+    const balanceDiv = document.getElementById('balanceDiv');
+    balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
+}
+const balance = parseInt(localStorage.getItem('borderControlBalance') || '1000');
 let carImgSource;
 const personDescript = document.getElementById("personDescript");
 const emberkep = document.getElementById("emberkep");
@@ -31,6 +43,13 @@ canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
 canvas.style.width = "100%";
 canvas.style.height = "40%";
+function updateBalance(amount) {
+    const newBalance = balance + amount;
+    localStorage.setItem('borderControlBalance', newBalance.toString());
+    const balanceDiv = document.getElementById('balanceDiv');
+    balanceDiv.innerHTML = `${newBalance} Ft`;
+    return newBalance;
+}
 function showData(person, car) {
     personDescript.innerHTML += person.description;
     emberkep.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="" />`;
@@ -45,6 +64,8 @@ function showData(person, car) {
 function loadPersonData() {
     return __awaiter(this, void 0, void 0, function* () {
         const [person, car] = yield generatePersonCarCombination();
+        currentPerson = person;
+        currentCar = car;
         showData(person, car);
         if (!carImgSource) {
             console.error('Nincs megfelelő kép az adatlapról!');
@@ -72,7 +93,14 @@ function initializeAnimation() {
     letartoztatButton.addEventListener('click', () => {
         console.log("kisfaszu");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        actionText.innerText = "Letartóztattad a kriminális bűnözőt!";
+        if (currentPerson.warranted.length > 0) {
+            actionText.innerText = "Letartóztattad a kriminális bűnözőt!";
+            updateBalance(1000);
+        }
+        else {
+            actionText.innerText = "Ártatlan embert tartóztattál le.";
+            updateBalance(-1000);
+        }
         setTimeout(() => {
             location.reload();
         }, 2000);

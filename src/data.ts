@@ -267,6 +267,17 @@ import { generatePersonCarCombination } from "./generatePersonCarCombination.js"
 let currentPerson: Person;
 let currentCar: Car;
 
+if (!localStorage.getItem('borderControlBalance')) {
+    localStorage.setItem('borderControlBalance', '1000');
+    const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+    balanceDiv.innerHTML = `1000 Ft`;
+} else {
+    const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+    balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
+}
+
+const balance = parseInt(localStorage.getItem('borderControlBalance') || '1000');
+
 let carImgSource: string;
 
 const personDescript = document.getElementById("personDescript");
@@ -290,6 +301,15 @@ canvas.style.backgroundSize = "cover";
 canvas.style.width = "100%";    
 canvas.style.height = "40%";    
 
+
+
+function updateBalance(amount: number) {
+    const newBalance = balance + amount;
+    localStorage.setItem('borderControlBalance', newBalance.toString());
+    const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+    balanceDiv.innerHTML = `${newBalance} Ft`;
+    return newBalance;
+}
 
 function showData(person: Person, car: Car) {
     personDescript!.innerHTML += person.description;
@@ -343,9 +363,11 @@ function initializeAnimation() {
         ctx!.clearRect(0, 0, canvas.width, canvas.height);
         if(currentPerson.warranted.length > 0) {
             actionText.innerText = "Letartóztattad a kriminális bűnözőt!";
+            updateBalance(1000);
         }
         else {
             actionText.innerText = "Ártatlan embert tartóztattál le.";
+            updateBalance(-1000);
         }
         
 
