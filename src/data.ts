@@ -318,6 +318,11 @@ if (!localStorage.getItem('prevRoundReward')) {
 let carImgSource: string;
 
 const personDescript = document.getElementById("personDescript");
+const personName = document.getElementById("personName");
+const personBorn = document.getElementById("personBorn");
+const personNationality = document.getElementById("personNationality");
+const personSex = document.getElementById("personSex");
+const personWarrant = document.getElementById("personWarrant");
 const emberkep = document.getElementById("emberkep");
 const carDescript = document.getElementById("carDescript");
 const carColor = document.getElementById("carColor");
@@ -436,7 +441,6 @@ async function initializeAnimation() {
     });
 
     letartoztatButton.addEventListener('click', async () => {        
-        console.log("kisfaszu");
         if(randNum(1, 3) > 1) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
@@ -500,7 +504,11 @@ async function initializeAnimation() {
             }
         }
         else { 
-            //Ide írd a gomb funkcionalitását
+            personName!.innerHTML += '<span class="fw-bold">Név: </span>' + currentPerson.name;
+            personBorn!.innerHTML += '<span class="fw-bold">Születési dátum: </span>Születési dátum: ' + currentPerson.age.toString();
+            personNationality!.innerHTML += '<span class="fw-bold">Nemzetiség: </span>' + currentPerson.nationality;
+            personSex!.innerHTML += '<span class="fw-bold">Neme: </span>' + currentPerson.sex;
+            personWarrant!.innerHTML += currentPerson.warranted.length > 0 ? '<span class="fw-bold">Körözött</span>' : '<span class="fw-bold">Nem körözött</span>';
         }
     });
 
