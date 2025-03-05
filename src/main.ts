@@ -13,4 +13,4 @@ console.log(generatePersonCarCombination());
 
 
 
-console.log(quickTimeEvent(player));
+// console.log(quickTimeEvent(player));
