@@ -69,6 +69,10 @@ const canvas = document.getElementById('animationCanvas');
 const ctx = canvas === null || canvas === void 0 ? void 0 : canvas.getContext('2d');
 const startButton = document.getElementById('startBgdiv');
 const letartoztatButton = document.getElementById('letartoztatdiv');
+const emberadatButton = document.getElementById('emberadatdiv');
+const autoadatButton = document.getElementById('autoadatdiv');
+const atkutatasButton = document.getElementById('atkutatasdiv');
+const papirokButton = document.getElementById('papirokdiv');
 const actionText = document.getElementById('actionText');
 const message = document.getElementById('message');
 const auto = document.getElementById('auto');
@@ -79,6 +83,10 @@ canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
 canvas.style.width = "100%";
 canvas.style.height = "40%";
+function randNum(min, max) {
+    // Ensures the minimum and maximum are integers and handles edge cases
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function updateBalance(amount) {
     const newBalance = balance + amount;
     localStorage.setItem('borderControlBalance', newBalance.toString());
@@ -156,35 +164,145 @@ function initializeAnimation() {
         });
         letartoztatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
             console.log("kisfaszu");
-            quickTimeEventContainer.style.display = "block";
-            let quickTimeEventFinish = yield quickTimeEvent(player);
-            console.log(quickTimeEventFinish + "a quick time event");
-            if (quickTimeEventFinish == true) {
-                quickTimeEventContainer.style.display = "none";
-                actionText.innerText = "Letartóztattál egy bűnözőt!";
-                updateBalance(1000);
-                updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                }
             }
             else {
-                quickTimeEventContainer.style.display = "none";
-                actionText.innerText = "Meglőttek!";
-                updateBalance(-10000);
-                updatePrevRoundMessage("Meglőttek!", -10000);
-            }
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (currentPerson.warranted.length > 0) {
-                actionText.innerText = "Letartóztattál egy bűnözőt!";
-                updateBalance(1000);
-                updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
-            }
-            else {
-                actionText.innerText = "Ártatlan embert tartóztattál le.";
-                updateBalance(-1000);
-                updatePrevRoundMessage("Ártatlan embert tartóztattál le.", -1000);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (currentPerson.warranted.length > 0) {
+                    actionText.innerText = "Letartóztattál egy bűnözőt!";
+                    updateBalance(1000);
+                    updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
+                }
+                else {
+                    actionText.innerText = "Ártatlan embert tartóztattál le.";
+                    updateBalance(-1000);
+                    updatePrevRoundMessage("Ártatlan embert tartóztattál le.", -1000);
+                }
             }
             setTimeout(() => {
                 location.reload();
             }, 2000);
+        }));
+        emberadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            }
+            else {
+                //Ide írd a gomb funkcionalitását
+            }
+        }));
+        autoadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            }
+            else {
+                //Ide írd a gomb funkcionalitását
+            }
+        }));
+        atkutatasButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                }
+            }
+            else {
+                //Ide írd a gomb funkcionalitását
+            }
+        }));
+        papirokButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                }
+            }
+            else {
+                //Ide írd a gomb funkcionalitását
+            }
         }));
     });
 }
