@@ -69,6 +69,12 @@ const carDescript = document.getElementById("carDescript");
 const carColor = document.getElementById("carColor");
 const carPlate = document.getElementById("carPlate");
 const carModel = document.getElementById("carModel");
+const carWarrant = document.getElementById("carWarrant");
+const smugglerText = document.getElementById("smugglerText");
+const smuggler = document.getElementById("smuggler");
+const smugglerDiv = document.getElementById("smugglerDiv");
+const smugglerLet = document.getElementById("smugglerLet");
+const smugglerJail = document.getElementById("smugglerJail");
 const autokep = document.getElementById("autokepAdatlap");
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas === null || canvas === void 0 ? void 0 : canvas.getContext('2d');
@@ -83,6 +89,9 @@ const message = document.getElementById('message');
 const auto = document.getElementById('auto');
 const quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
 quickTimeEventContainer.style.display = "none";
+smuggler.style.display = "none";
+smugglerDiv.style.display = "none";
+let tF = false;
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
@@ -168,7 +177,7 @@ function initializeAnimation() {
             }, 2000);
         });
         letartoztatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            if (randNum(1, 3) > 1) {
+            if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
                 console.log(quickTimeEventFinish + "a quick time event");
@@ -203,7 +212,7 @@ function initializeAnimation() {
             }, 2000);
         }));
         emberadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            if (randNum(1, 3) > 1) {
+            if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
                 console.log(quickTimeEventFinish + "a quick time event");
@@ -235,7 +244,7 @@ function initializeAnimation() {
             }
         }));
         autoadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            if (randNum(1, 3) > 1) {
+            if (false) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
                 console.log(quickTimeEventFinish + "a quick time event");
@@ -259,11 +268,11 @@ function initializeAnimation() {
                 }
             }
             else {
-                //Ide írd a gomb funkcionalitását
+                carWarrant.innerHTML += currentCar.warranted.length > 0 ? '<span class="fw-bold">Körözött: ' + currentCar.warranted + '</span>' : '<span class="fw-bold">Nem körözött</span>';
             }
         }));
         atkutatasButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            if (randNum(1, 3) > 1) {
+            if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
                 console.log(quickTimeEventFinish + "a quick time event");
@@ -287,7 +296,22 @@ function initializeAnimation() {
                 }
             }
             else {
-                //Ide írd a gomb funkcionalitását
+                if (currentCar.smuggler.length > 0) {
+                    smugglerText.innerHTML = '<span class="fw-bold">Ezt találtad: ' + currentCar.smuggler + '</span>';
+                    if (randNum(1, 3) > 1) {
+                        smugglerLet.style.display = "none";
+                    }
+                    else {
+                        tF = true;
+                    }
+                }
+                else {
+                    smugglerText.innerHTML = '<span class="fw-bold">Nem találtál semmi illegálisat</span>';
+                    smugglerJail.style.display = "none";
+                    smugglerLet.style.display = "block";
+                }
+                smuggler.style.display = "block";
+                smugglerDiv.style.display = "flex";
             }
         }));
         papirokButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
@@ -312,6 +336,59 @@ function initializeAnimation() {
                 //Ide írd a gomb funkcionalitását
             }
         }));
+        smugglerJail.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            if (randNum(1, 3) > 1) {
+                quickTimeEventContainer.style.display = "block";
+                let quickTimeEventFinish = yield quickTimeEvent(player);
+                console.log(quickTimeEventFinish + "a quick time event");
+                if (quickTimeEventFinish == true) {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Lelőtted a támadót!";
+                    updateBalance(10000);
+                    updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                }
+                else {
+                    quickTimeEventContainer.style.display = "none";
+                    actionText.innerText = "Meglőttek!";
+                    updateBalance(-10000);
+                    updatePrevRoundMessage("Meglőttek!", -10000);
+                }
+            }
+            else {
+                actionText.innerText = "Letartóztattál egy bűnözőt!";
+                updateBalance(1000);
+                updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
+            }
+            smuggler.style.display = "none";
+            smugglerDiv.style.display = "none";
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }));
+        smugglerLet === null || smugglerLet === void 0 ? void 0 : smugglerLet.addEventListener('click', () => {
+            if (currentPerson.warranted.length > 0) {
+                actionText.innerText = "Átengedtél egy bűnözőt!";
+                updateBalance(-1000);
+                updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
+            }
+            else {
+                actionText.innerText = "Elengedtél egy ártatlan embert.";
+                updateBalance(1000);
+                updatePrevRoundMessage("Elengedtél egy ártatlan embert.", 1000);
+            }
+            if (tF === true) {
+                smugglerLet.style.display = "block";
+                smugglerText.innerText += `A csempész ajánlott egy köteg pénzt ha átengeded.`;
+                let amount = randNum(30, 50) * 1000;
+                updateBalance(amount);
+            }
+            smuggler.style.display = "none";
+            smugglerDiv.style.display = "none";
+            imageObject.moveToEnd();
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        });
     });
 }
 class ImageObject {

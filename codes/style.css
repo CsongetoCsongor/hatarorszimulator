@@ -139,4 +139,25 @@ canvas {
 }
 
 
+#smuggler{
 
+    background-color: rgba(100, 155, 93, 0.6);
+    z-index: 2;
+    padding: 5%;
+    font-size: 200%;
+    border-radius: 12px;
+    display: block;
+}
+
+#smugglerDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
