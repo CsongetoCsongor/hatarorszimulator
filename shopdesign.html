@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolt</title>
+    <link rel="stylesheet" href="codes/design.css">
+    
+    <script>
+        function buyProduct(button) {
+            const status = button.previousElementSibling;
+            if (status.classList.contains('not-owned')) {
+                status.classList.remove('not-owned');
+                status.classList.add('owned');
+                status.textContent = '✔ Birtoklod';
+                button.disabled = true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="shopcontainer" style="position: absolute; z-index:101; top: 10%; left: 10%; width: 80%; height: 80%;">
+        <div class="product">
+            <img src="fegyver-kepek-skinek/pistol-skin-1.webp" alt="Termék 3">
+            <h3>Pistol</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/pistol-skin-2.webp" alt="Termék 3">
+            <h3>Pistol</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/pistol-skin-3.webp" alt="Termék 3">
+            <h3>Pistol</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/ak-skin-1.png" alt="Termék 1">
+            <h3>AK</h3>
+            <p>Ár: 5000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/ak-skin-2.png" alt="Termék 2">
+            <h3>AK</h3>
+            <p>Ár: 7000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/ak-skin-3.png" alt="Termék 3">
+            <h3>AK</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/shotgun-skin-1.webp" alt="Termék 3">
+            <h3>Shotgun</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/shotgun-skin-2.png" alt="Termék 3">
+            <h3>Shotgun</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/sniper-skin-1.png" alt="Termék 3">
+            <h3>Sniper</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/sniper-skin-2.png" alt="Termék 3">
+            <h3>Sniper</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+        <div class="product">
+            <img src="fegyver-kepek-skinek/knife-skin-1.webp" alt="Termék 3">
+            <h3>Knife</h3>
+            <p>Ár: 10000 Ft</p>
+            <p class="status not-owned">✖ Nem birtoklod</p>
+            <button onclick="buyProduct(this)">Megveszem</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolt</title>
+    <link rel="stylesheet" href="codes/design.css">
+
+    <script>
+        function buyProduct(button) {
+            const status = button.previousElementSibling;
+            if (status.classList.contains('not-owned')) {
+                status.classList.remove('not-owned');
+                status.classList.add('owned');
+                status.textContent = '✔ Birtoklod';
+                button.disabled = true;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/pistol-skin-1.webp" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/pistol-skin-2.png" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/pistol-skin-3.webp" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/ak-skin-1.png" alt="Termék 1">
+        <h3>Termék 1</h3>
+        <p>Ár: 5000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/ak-skin-2.png" alt="Termék 2">
+        <h3>Termék 2</h3>
+        <p>Ár: 7000 Ft</p>
+        <p class="status not-owned">✖ Nem birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/ak-skin-3.png" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="fegyver-kepek-skinek/" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Termék 3">
+        <h3>Termék 3</h3>
+        <p>Ár: 10000 Ft</p>
+        <p class="status not-owned">✔ Birtoklod</p>
+        <button onclick="buyProduct(this)">Megveszem</button>
+    </div>
+</body>
+</html> -->
+ 
