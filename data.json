@@ -141,7 +141,9 @@
             "warranted": ["Lopott autó"],
             "smuggler": ["50 doboz cigaretta"],
             "description": "Levert állapotú autó, koszos, sérült a lökhárító.",
-            "imgSource": "auto-kepek/audi-oldalnezet.png"
+            "imgSource": "auto-kepek/audi-oldalnezet.png",
+            "weight": "1510kg",
+            "HP": "201"
         },
         {
             "id": 2,
@@ -152,7 +154,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Tiszta autó, nemrég moshatták.",
-            "imgSource": "auto-kepek/bmw-oldalnezet.png"
+            "imgSource": "auto-kepek/bmw-oldalnezet.png",
+            "weight": "2808kg",
+            "HP": "650"
         },
         {
             "id": 3,
@@ -163,7 +167,9 @@
             "warranted": ["Csempészet"],
             "smuggler": ["Migrats"],
             "description": "Kicsit koszos, az oldalán van egy horpadás.",
-            "imgSource": "auto-kepek/feher-kisbusz-oldalnezet.png"
+            "imgSource": "auto-kepek/feher-kisbusz-oldalnezet.png",
+            "weight": "5579kg",
+            "HP": "150"
         },
         {
             "id": 4,
@@ -174,7 +180,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Luxus autó, olyan tiszta, hogy szinte világít a naptól.",
-            "imgSource": "auto-kepek/ferrari-oldalnezet.png"
+            "imgSource": "auto-kepek/ferrari-oldalnezet.png",
+            "weight": "1380kg",
+            "HP": "562"
         },
         {
             "id": 5,
@@ -185,7 +193,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Jó állapotú, egészen tiszta autó.",
-            "imgSource": "auto-kepek/ford-oldalnezet.png"
+            "imgSource": "auto-kepek/ford-oldalnezet.png",
+            "weight": "1235kg",
+            "HP": "276"
         },
         {
             "id": 6,
@@ -196,7 +206,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Tiszta autó, egy hatalmas karcolással az oldalán.",
-            "imgSource": "auto-kepek/hyundai-oldalnezet.png"
+            "imgSource": "auto-kepek/hyundai-oldalnezet.png",
+            "weight": "1236kg",
+            "HP": "147"
         },
         {
             "id": 7,
@@ -207,7 +219,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Nagy kamion egy hatalmas utánfutóval. Kissé koszos, de jó ákllapotúnak tűnik, utánfutó is rendben van.",
-            "imgSource": "auto-kepek/kamion-oldalnezet.png"
+            "imgSource": "auto-kepek/kamion-oldalnezet.png",
+            "weight": "44000kg",
+            "HP": "470"
         },
         {
             "id": 8,
@@ -218,7 +232,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Rendkívül szép autó. Tiszta, és jó a hangja",
-            "imgSource": "auto-kepek/mustang-oldalnezet.png"
+            "imgSource": "auto-kepek/mustang-oldalnezet.png",
+            "weight": "1897kg",
+            "HP": "760"
         },
         {
             "id": 9,
@@ -229,7 +245,9 @@
             "warranted": ["Cserbenhagyásos gázolás"],
             "smuggler": [],
             "description": "Behorpadt lökhárító, és motorháztető, viszont elég tiszta.",
-            "imgSource": "auto-kepek/opel-oldalnezet.avif"
+            "imgSource": "auto-kepek/opel-oldalnezet.avif",
+            "weight": "1363kg ",
+            "HP": "99"
         },
         {
             "id": 10,
@@ -240,7 +258,9 @@
             "warranted": [],
             "smuggler": [],
             "description": "Kicsit koszos, jó állapotú autó.",
-            "imgSource": "auto-kepek/toyota-oldalnezet.png"
+            "imgSource": "auto-kepek/toyota-oldalnezet.png",
+            "weight": "2130kg",
+            "HP": "203"
         },
         {
             "id": 11,
@@ -251,7 +271,9 @@
             "warranted": ["Illegális tuningolás"],
             "smuggler": ["Rengeteg alkohol"],
             "description": "Tiszta, szép autó, hangja kicsit hangos.",
-            "imgSource": "auto-kepek/volkswagen-oldalnezet.png"
+            "imgSource": "auto-kepek/volkswagen-oldalnezet.png",
+            "weight": "1387kg",
+            "HP": "240"
         }
     ]
 }
