@@ -335,8 +335,8 @@ function initializeAnimation() {
                 }
             }
             else {
-                carWeight.innerText = '<span class="fw-bold">Súly: </span>' + currentCar.weight;
-                carHP.innerText = '<span class="fw-bold">Lóerő: </span>' + currentCar.HP;
+                carWeight.innerHTML = '<span class="fw-bold">Súly: </span>' + currentCar.weight;
+                carHP.innerHTML = '<span class="fw-bold">Lóerő: </span>' + currentCar.HP;
             }
         }));
         smugglerJail.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
