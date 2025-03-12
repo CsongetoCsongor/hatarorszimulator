@@ -37,7 +37,9 @@ async function loadJsonCars(): Promise<Car[]> {
         car.warranted,
         car.smuggler,
         car.description,
-        car.imgSource
+        car.imgSource,
+        car.weight,
+        car.HP
     ));
 }
 

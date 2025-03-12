@@ -1,5 +1,5 @@
 class Car {
-    constructor(id, licensePlate, model, color, traffic_permit, warranted, smuggler, description, imgSource) {
+    constructor(id, licensePlate, model, color, traffic_permit, warranted, smuggler, description, imgSource, weight, HP) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.model = model;
@@ -9,6 +9,8 @@ class Car {
         this.smuggler = smuggler;
         this.description = description;
         this.imgSource = imgSource;
+        this.weight = weight;
+        this.HP = HP;
     }
 }
 export default Car;

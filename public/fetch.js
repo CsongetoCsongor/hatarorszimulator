@@ -28,7 +28,7 @@ function loadJsonCars() {
             throw new Error(response.statusText);
         }
         const cars = yield response.json();
-        return cars.map((car) => new Car(car.id, car.licenseePlate, car.model, car.color, car.traffic_permit, car.warranted, car.smuggler, car.description, car.imgSource));
+        return cars.map((car) => new Car(car.id, car.licenseePlate, car.model, car.color, car.traffic_permit, car.warranted, car.smuggler, car.description, car.imgSource, car.weight, car.HP));
     });
 }
 function getPersons() {

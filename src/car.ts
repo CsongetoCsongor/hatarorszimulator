@@ -8,8 +8,10 @@ class Car {
     public smuggler: string[];
     public description: string;
     public imgSource: string;
+    public weight: string;
+    public HP: string;
 
-    public constructor(id: number, licensePlate: string, model: string, color: string, traffic_permit: boolean, warranted: string[], smuggler: string[], description: string, imgSource: string) {
+    public constructor(id: number, licensePlate: string, model: string, color: string, traffic_permit: boolean, warranted: string[], smuggler: string[], description: string, imgSource: string, weight: string, HP: string) {
         this.id = id;
         this.licensePlate = licensePlate;
         this.model = model;
@@ -19,6 +21,8 @@ class Car {
         this.smuggler = smuggler;
         this.description = description;
         this.imgSource = imgSource;
+        this.weight = weight;
+        this.HP = HP;
     }
 }
 

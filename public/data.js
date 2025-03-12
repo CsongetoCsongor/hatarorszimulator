@@ -70,6 +70,8 @@ const carColor = document.getElementById("carColor");
 const carPlate = document.getElementById("carPlate");
 const carModel = document.getElementById("carModel");
 const carWarrant = document.getElementById("carWarrant");
+const carWeight = document.getElementById("carWeight");
+const carHP = document.getElementById("carHP");
 const smugglerText = document.getElementById("smugglerText");
 const smuggler = document.getElementById("smuggler");
 const smugglerDiv = document.getElementById("smugglerDiv");
@@ -333,7 +335,8 @@ function initializeAnimation() {
                 }
             }
             else {
-                //Ide írd a gomb funkcionalitását
+                carWeight.innerText = '<span class="fw-bold">Súly: </span>' + currentCar.weight;
+                carHP.innerText = '<span class="fw-bold">Lóerő: </span>' + currentCar.HP;
             }
         }));
         smugglerJail.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
