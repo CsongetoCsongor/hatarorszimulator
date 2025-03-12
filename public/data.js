@@ -161,7 +161,7 @@ function initializeAnimation() {
         console.log(`Animációhoz használt autó kép forrása: ${carImgSource}`);
         animate(imageObject);
         startButton.addEventListener('click', () => {
-            if (currentPerson.warranted.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
                 updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -196,7 +196,7 @@ function initializeAnimation() {
             }
             else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (currentPerson.warranted.length > 0) {
+                if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
                     actionText.innerText = "Letartóztattál egy bűnözőt!";
                     updateBalance(1000);
                     updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
@@ -244,7 +244,7 @@ function initializeAnimation() {
             }
         }));
         autoadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            if (false) {
+            if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
                 console.log(quickTimeEventFinish + "a quick time event");
