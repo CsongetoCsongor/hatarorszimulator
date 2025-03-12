@@ -237,7 +237,7 @@ function initializeAnimation() {
             }
             else {
                 personName.innerHTML += '<span class="fw-bold">Név: </span>' + currentPerson.name;
-                personBorn.innerHTML += '<span class="fw-bold">Születési dátum: </span>Születési dátum: ' + currentPerson.age.toString();
+                personBorn.innerHTML += '<span class="fw-bold">Születési dátum: </span>' + currentPerson.age.toString();
                 personNationality.innerHTML += '<span class="fw-bold">Nemzetiség: </span>' + currentPerson.nationality;
                 personSex.innerHTML += '<span class="fw-bold">Neme: </span>' + currentPerson.sex;
                 personWarrant.innerHTML += currentPerson.warranted.length > 0 ? '<span class="fw-bold">Körözött</span>' : '<span class="fw-bold">Nem körözött</span>';
