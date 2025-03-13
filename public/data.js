@@ -330,12 +330,18 @@ function initializeAnimation() {
                     actionText.innerText = "Lelőtted a támadót!";
                     updateBalance(10000);
                     updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
                 }
                 else {
                     quickTimeEventContainer.style.display = "none";
                     actionText.innerText = "Meglőttek!";
                     updateBalance(-10000);
                     updatePrevRoundMessage("Meglőttek!", -10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
                 }
             }
             else {
