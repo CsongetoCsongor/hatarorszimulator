@@ -491,6 +491,7 @@ async function initializeAnimation() {
     });
 
     emberadatButton.addEventListener('click', async () => {
+        emberadatButton.style.visibility = "hidden";
         if(randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
@@ -525,6 +526,8 @@ async function initializeAnimation() {
     });
 
     autoadatButton.addEventListener('click', async () => {
+        autoadatButton.style.visibility = "hidden";
+
         if(randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
@@ -555,6 +558,7 @@ async function initializeAnimation() {
     });
 
     atkutatasButton.addEventListener('click', async () => {
+        atkutatasButton.style.visibility = "hidden";
         if(randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
@@ -604,6 +608,7 @@ async function initializeAnimation() {
     });
 
     papirokButton.addEventListener('click', async () => {
+        papirokButton.style.visibility = "hidden";
         if(randNum(1, 3) > 1) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
@@ -614,12 +619,18 @@ async function initializeAnimation() {
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             }
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
             }
         }
         else { 
@@ -628,7 +639,8 @@ async function initializeAnimation() {
         }
     });
 
-    smugglerJail!.addEventListener('click', async () => {        
+    smugglerJail!.addEventListener('click', async () => {  
+              
         if(randNum(1, 3) > 1) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);

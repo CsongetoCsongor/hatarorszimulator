@@ -214,6 +214,7 @@ function initializeAnimation() {
             }, 2000);
         }));
         emberadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            emberadatButton.style.visibility = "hidden";
             if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
@@ -246,6 +247,7 @@ function initializeAnimation() {
             }
         }));
         autoadatButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            autoadatButton.style.visibility = "hidden";
             if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
@@ -274,6 +276,7 @@ function initializeAnimation() {
             }
         }));
         atkutatasButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            atkutatasButton.style.visibility = "hidden";
             if (randNum(1, 10) < 4) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
@@ -317,6 +320,7 @@ function initializeAnimation() {
             }
         }));
         papirokButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            papirokButton.style.visibility = "hidden";
             if (randNum(1, 3) > 1) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
@@ -326,12 +330,18 @@ function initializeAnimation() {
                     actionText.innerText = "Lelőtted a támadót!";
                     updateBalance(10000);
                     updatePrevRoundMessage("Lelőtted a támadót!", 10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
                 }
                 else {
                     quickTimeEventContainer.style.display = "none";
                     actionText.innerText = "Meglőttek!";
                     updateBalance(-10000);
                     updatePrevRoundMessage("Meglőttek!", -10000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
                 }
             }
             else {
