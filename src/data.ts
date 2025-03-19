@@ -351,11 +351,16 @@ const actionText = document.getElementById('actionText') as HTMLDivElement;
 const message = document.getElementById('message') as HTMLDivElement;
 const auto = document.getElementById('auto') as HTMLDivElement;
 const quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
+const shopWindow = document.getElementById("shopcontainer") as HTMLDivElement;
 quickTimeEventContainer!.style.display = "none";
 smuggler!.style.display = "none";
 smugglerDiv!.style.display = "none";
+shopWindow.style.display = "none";
 let tF:boolean;
 
+document.getElementById("shopBtn")?.addEventListener("click", function() {
+    shopWindow.style.display = "flex";
+});
 
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
@@ -396,6 +401,19 @@ function updatePrevRoundMessage(text: string, reward: number) {
     
     return text;
 }
+
+function saveArrayToLocalStorage(key: string, array: any[]): void {
+    // Convert the array to a JSON string
+    localStorage.setItem(key, JSON.stringify(array));
+  }
+  
+  // Function to get an array from localStorage
+  function getArrayFromLocalStorage(key: string): any[] {
+    // Get the JSON string from localStorage and parse it back to an array
+    const storedArray = localStorage.getItem(key);
+    return storedArray ? JSON.parse(storedArray) : [];  // Return an empty array if nothing is stored
+  }
+  
 
 function showData(person: Person, car: Car) {
     personDescript!.innerHTML += person.description;
