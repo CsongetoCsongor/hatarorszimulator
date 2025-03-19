@@ -354,7 +354,7 @@ const quickTimeEventContainer = document.getElementById("quickTimeEventContainer
 quickTimeEventContainer!.style.display = "none";
 smuggler!.style.display = "none";
 smugglerDiv!.style.display = "none";
-let tF = false;
+let tF:boolean;
 
 
 // Beállítjuk a canvas háttérképét

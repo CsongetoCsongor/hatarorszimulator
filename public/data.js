@@ -95,7 +95,7 @@ const quickTimeEventContainer = document.getElementById("quickTimeEventContainer
 quickTimeEventContainer.style.display = "none";
 smuggler.style.display = "none";
 smugglerDiv.style.display = "none";
-let tF = false;
+let tF;
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
