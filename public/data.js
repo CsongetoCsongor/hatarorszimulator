@@ -73,10 +73,12 @@ const carWarrant = document.getElementById("carWarrant");
 const carWeight = document.getElementById("carWeight");
 const carHP = document.getElementById("carHP");
 const smugglerText = document.getElementById("smugglerText");
+const smugglerText2 = document.getElementById("smugglerText2");
 const smuggler = document.getElementById("smuggler");
 const smugglerDiv = document.getElementById("smugglerDiv");
 const smugglerLet = document.getElementById("smugglerLet");
 const smugglerJail = document.getElementById("smugglerJail");
+const smugglerClose = document.getElementById("smugglerClose");
 const autokep = document.getElementById("autokepAdatlap");
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas === null || canvas === void 0 ? void 0 : canvas.getContext('2d');
@@ -93,7 +95,7 @@ const quickTimeEventContainer = document.getElementById("quickTimeEventContainer
 quickTimeEventContainer.style.display = "none";
 smuggler.style.display = "none";
 smugglerDiv.style.display = "none";
-let tF = false;
+let tF;
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
@@ -308,6 +310,7 @@ function initializeAnimation() {
                     }
                     else {
                         tF = true;
+                        smugglerText2.innerHTML = 'A csempész ajánlott egy köteg pénzt ha átengeded.';
                     }
                 }
                 else {
@@ -318,6 +321,7 @@ function initializeAnimation() {
                 smuggler.style.display = "block";
                 smugglerDiv.style.display = "flex";
             }
+            console.log(tF);
         }));
         papirokButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
             papirokButton.style.visibility = "hidden";
@@ -350,6 +354,7 @@ function initializeAnimation() {
             }
         }));
         smugglerJail.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            smugglerDiv.style.display = "none";
             if (randNum(1, 3) > 1) {
                 quickTimeEventContainer.style.display = "block";
                 let quickTimeEventFinish = yield quickTimeEvent(player);
@@ -378,7 +383,9 @@ function initializeAnimation() {
                 location.reload();
             }, 2000);
         }));
+        console.log(`kesobbi: ${tF}`);
         smugglerLet === null || smugglerLet === void 0 ? void 0 : smugglerLet.addEventListener('click', () => {
+            smugglerDiv.style.display = "none";
             if (currentPerson.warranted.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
@@ -389,9 +396,9 @@ function initializeAnimation() {
                 updateBalance(1000);
                 updatePrevRoundMessage("Elengedtél egy ártatlan embert.", 1000);
             }
-            if (tF === true) {
-                smugglerLet.style.display = "block";
-                smugglerText.innerText += `A csempész ajánlott egy köteg pénzt ha átengeded.`;
+            if (tF) {
+                // smugglerLet!.style.display = "block";
+                console.log("faszomat");
                 let amount = randNum(30, 50) * 1000;
                 updateBalance(amount);
             }
@@ -401,6 +408,10 @@ function initializeAnimation() {
             setTimeout(() => {
                 location.reload();
             }, 2000);
+        });
+        smugglerClose === null || smugglerClose === void 0 ? void 0 : smugglerClose.addEventListener('click', () => {
+            smuggler.style.display = "none";
+            smugglerDiv.style.display = "none";
         });
     });
 }
