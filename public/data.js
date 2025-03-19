@@ -159,8 +159,8 @@ function initializeAnimation() {
         const imageHeight = 100;
         let y = (canvas.height - imageHeight) / 2;
         const speedX = 3;
-        const stopX = (canvas.width - imageWidth) / 2;
-        const endX = canvas.width;
+        const stopX = (canvas.width - imageWidth) / 8;
+        const endX = canvas.width * 0.75;
         const imageObject = new ImageObject(-imageWidth, y, imageWidth, imageHeight, carImgSource, speedX, stopX, endX);
         console.log(`Animációhoz használt autó kép forrása: ${carImgSource}`);
         animate(imageObject);
