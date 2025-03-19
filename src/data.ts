@@ -351,11 +351,16 @@ const actionText = document.getElementById('actionText') as HTMLDivElement;
 const message = document.getElementById('message') as HTMLDivElement;
 const auto = document.getElementById('auto') as HTMLDivElement;
 const quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
+const shopWindow = document.getElementById("shopcontainer") as HTMLDivElement;
 quickTimeEventContainer!.style.display = "none";
 smuggler!.style.display = "none";
 smugglerDiv!.style.display = "none";
+shopWindow.style.display = "none";
 let tF:boolean;
 
+document.getElementById("shopBtn")?.addEventListener("click", function() {
+    shopWindow.style.display = "flex";
+});
 
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
@@ -397,6 +402,19 @@ function updatePrevRoundMessage(text: string, reward: number) {
     return text;
 }
 
+function saveArrayToLocalStorage(key: string, array: any[]): void {
+    // Convert the array to a JSON string
+    localStorage.setItem(key, JSON.stringify(array));
+  }
+  
+  // Function to get an array from localStorage
+  function getArrayFromLocalStorage(key: string): any[] {
+    // Get the JSON string from localStorage and parse it back to an array
+    const storedArray = localStorage.getItem(key);
+    return storedArray ? JSON.parse(storedArray) : [];  // Return an empty array if nothing is stored
+  }
+  
+
 function showData(person: Person, car: Car) {
     personDescript!.innerHTML += person.description;
     emberkep!.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="" />`;
@@ -436,7 +454,7 @@ async function initializeAnimation() {
     animate(imageObject);
 
     startButton.addEventListener('click', () => {
-        if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+        if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -475,7 +493,7 @@ async function initializeAnimation() {
         }
         else {
             ctx!.clearRect(0, 0, canvas.width, canvas.height);
-            if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+            if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                 actionText.innerText = "Letartóztattál egy bűnözőt!";
                 updateBalance(1000);
                 updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
@@ -685,7 +703,7 @@ async function initializeAnimation() {
     smugglerLet?.addEventListener('click', ()=>{
         smugglerDiv!.style.display = "none";
 
-        if(currentPerson.warranted.length > 0) {
+        if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -699,7 +717,7 @@ async function initializeAnimation() {
 
         if(tF) {
             // smugglerLet!.style.display = "block";
-            console.log("faszomat");
+            
             
             let amount = randNum(30,50) *1000;
             updateBalance(amount);
