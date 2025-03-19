@@ -165,7 +165,7 @@ function initializeAnimation() {
         console.log(`Animációhoz használt autó kép forrása: ${carImgSource}`);
         animate(imageObject);
         startButton.addEventListener('click', () => {
-            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
                 updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -200,7 +200,7 @@ function initializeAnimation() {
             }
             else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+                if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                     actionText.innerText = "Letartóztattál egy bűnözőt!";
                     updateBalance(1000);
                     updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
@@ -386,7 +386,7 @@ function initializeAnimation() {
         console.log(`kesobbi: ${tF}`);
         smugglerLet === null || smugglerLet === void 0 ? void 0 : smugglerLet.addEventListener('click', () => {
             smugglerDiv.style.display = "none";
-            if (currentPerson.warranted.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
                 updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -398,7 +398,6 @@ function initializeAnimation() {
             }
             if (tF) {
                 // smugglerLet!.style.display = "block";
-                console.log("faszomat");
                 let amount = randNum(30, 50) * 1000;
                 updateBalance(amount);
             }
