@@ -6,8 +6,8 @@ body {
 canvas {
     display: block;
     margin-bottom: 5%;
-    margin-left: -3%;
-
+    margin-left: -4vh;
+    border: 5px white dashed;
 
 }
 
@@ -37,14 +37,32 @@ canvas {
 }
 
 #startBgdiv{
-    background-image: url('/zold.jpg');
+    background-image: url('/lampa.jpg');
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
     color: white;
+}
+
+#startBgdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+}
+
+#startBgdiv p{
+    display: none;
+}
+
+#startBgdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
 }
 
 #letartoztatdiv{
@@ -57,14 +75,52 @@ canvas {
     
 }
 
+#letartoztatdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+
+}
+
+#letartoztatdiv p{
+    display: none;
+}
+
+#letartoztatdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
+}
+
 #emberadatdiv{
     background-image: url('/id.jpg');
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+}
+
+#emberadatdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+
+}
+
+#emberadatdiv p{
+    display: none;
+}
+
+#emberadatdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
 }
 
 #autoadatdiv{
@@ -77,6 +133,25 @@ canvas {
     border-radius: 8px;
 }
 
+#autoadatdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+
+}
+
+#autoadatdiv p{
+    display: none;
+}
+
+#autoadatdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
+}
+
 #atkutatasdiv{
     background-image: url('/atkutatas.jpg');
     background-position: center;
@@ -87,6 +162,25 @@ canvas {
     border-radius: 8px;
 }
 
+#atkutatasdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+
+}
+
+#atkutatasdiv p{
+    display: none;
+}
+
+#atkutatasdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
+}
+
 #papirokdiv{
     background-image: url('/papirok.jpg');
     background-position: center;
@@ -95,6 +189,25 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+}
+
+#papirokdiv:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: none;
+    color: white;
+    transition-duration: 0.5s;
+
+}
+
+#papirokdiv p{
+    display: none;
+}
+
+#papirokdiv:hover p{
+    color: white;
+    font-size: large;
+    text-align: center;
+    display: block;
 }
 
 
@@ -119,7 +232,11 @@ canvas {
     padding: 5%;
     background-image: url('/adatokhatter.jpg');
     background-position: center;
-    min-height: 90vh;
+    max-height: 95vh;
+    min-height: 95vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    
 
 }
 
@@ -174,12 +291,16 @@ canvas {
 
 
 #actionText {
+    display: none;
     position: absolute;
-    font-size: 100px;
+    border: white solid 2px;
+    border-radius: 10px;
+    padding: 5%;
+    font-size: 2rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
 }
