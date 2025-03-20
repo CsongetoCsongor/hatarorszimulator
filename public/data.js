@@ -14,7 +14,6 @@ var _a;
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
 import { quickTimeEvent } from "./quickTimeEvent.js";
 import Player from "./player.js";
-let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../fegyver-kepek-skinek/ak-skin-1.png");
 let currentPerson;
 let currentCar;
 if (!localStorage.getItem('borderControlBalance')) {
@@ -26,6 +25,11 @@ else {
     const balanceDiv = document.getElementById('balanceDiv');
     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
 }
+if (!localStorage.getItem('equippedWeapon')) {
+    localStorage.setItem('equippedWeapon', 'fegyver-kepek-skinek/pistol-skin-2.webp');
+}
+let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../" + localStorage.getItem('equippedWeapon'));
+console.log(localStorage.getItem('equippedWeapon'));
 const balance = parseInt(localStorage.getItem('borderControlBalance') || '1000');
 if (!localStorage.getItem('prevRoundMessage')) {
     localStorage.setItem('prevRoundMessage', '...');
@@ -135,6 +139,14 @@ function updatePrevRoundMessage(text, reward) {
     }
     return text;
 }
+// if (!localStorage.getItem('weapons')) {
+//     localStorage.setItem('borderControlBalance', '1000');
+//     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+//     balanceDiv.innerHTML = `1000 Ft`;
+// } else {
+//     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+//     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
+// }
 function saveArrayToLocalStorage(key, array) {
     // Convert the array to a JSON string
     localStorage.setItem(key, JSON.stringify(array));
@@ -482,6 +494,64 @@ function animate(imageObject) {
     }
     requestAnimationFrame(frame);
 }
+function checkSameImgId(ide) {
+    Array.from(document.getElementsByTagName("img")).forEach(element => {
+        if (element.id.slice(0, -3) == ide.slice(0, -7)) {
+            return element.src;
+        }
+    });
+}
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     yield loadPersonData();
+    console.log(getArrayFromLocalStorage("weapons"));
+    document.querySelectorAll(".itemActions").forEach(span => {
+        var _a;
+        if ((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(span.id.slice(0, -7))) {
+            if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == span.id.slice(0, -7)) {
+                span.innerHTML = `
+                <button class="btn btn-warning">Felszerelve</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+            }
+            else {
+                span.innerHTML = `
+                <button class="useWeapon" id=${checkSameImgId(span.id)}>Használat</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+            }
+        }
+        else {
+            span.innerHTML = `
+                <button class="btn btn-secondary">Használat</button>
+                <button class="buyBtn" id="${span.id.slice(0, -7)}">Megveszem</button>
+            `;
+        }
+    });
+    document.querySelectorAll(".buyBtn").forEach(button => {
+        button.addEventListener("click", function () {
+            var _a;
+            console.log(button.id);
+            if (button.id && !((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id))) {
+                let currentWeapons = getArrayFromLocalStorage('weapons');
+                currentWeapons.push(button.id);
+                saveArrayToLocalStorage('weapons', currentWeapons);
+                // console.log("fegyvert vettél: "+button.id);
+                console.log(currentWeapons);
+                button.parentElement.innerHTML = `
+                    <button class="useWeapon">Használat</button>
+                    <button class="buyBtn btn btn-danger">Birtoklod</button>
+                `;
+            }
+        });
+    });
+    document.querySelectorAll(".useWeapon").forEach(button => {
+        button.addEventListener("click", function () {
+            console.log(button.parentElement.id);
+            localStorage.setItem("equippedWeapon", button.id);
+            button.parentElement.innerHTML = `
+                <button class="btn btn-warning">Felszerelve</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+        });
+    });
 }));
