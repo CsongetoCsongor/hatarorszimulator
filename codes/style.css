@@ -6,6 +6,9 @@ body {
 canvas {
     display: block;
     margin-bottom: 5%;
+    margin-left: -3%;
+
+
 }
 
 .row{
