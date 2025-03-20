@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var _a;
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
 import { quickTimeEvent } from "./quickTimeEvent.js";
 import Player from "./player.js";
@@ -92,10 +93,15 @@ const actionText = document.getElementById('actionText');
 const message = document.getElementById('message');
 const auto = document.getElementById('auto');
 const quickTimeEventContainer = document.getElementById("quickTimeEventContainer");
+const shopWindow = document.getElementById("shopcontainer");
 quickTimeEventContainer.style.display = "none";
 smuggler.style.display = "none";
 smugglerDiv.style.display = "none";
+shopWindow.style.display = "none";
 let tF;
+(_a = document.getElementById("shopBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
+    shopWindow.style.display = "flex";
+});
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
@@ -129,6 +135,16 @@ function updatePrevRoundMessage(text, reward) {
     }
     return text;
 }
+function saveArrayToLocalStorage(key, array) {
+    // Convert the array to a JSON string
+    localStorage.setItem(key, JSON.stringify(array));
+}
+// Function to get an array from localStorage
+function getArrayFromLocalStorage(key) {
+    // Get the JSON string from localStorage and parse it back to an array
+    const storedArray = localStorage.getItem(key);
+    return storedArray ? JSON.parse(storedArray) : []; // Return an empty array if nothing is stored
+}
 function showData(person, car) {
     personDescript.innerHTML += person.description;
     emberkep.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="" />`;
@@ -159,13 +175,13 @@ function initializeAnimation() {
         const imageHeight = 100;
         let y = (canvas.height - imageHeight) / 2;
         const speedX = 3;
-        const stopX = (canvas.width - imageWidth) / 2;
-        const endX = canvas.width;
+        const stopX = (canvas.width - imageWidth) / 8;
+        const endX = canvas.width * 0.75;
         const imageObject = new ImageObject(-imageWidth, y, imageWidth, imageHeight, carImgSource, speedX, stopX, endX);
         console.log(`Animációhoz használt autó kép forrása: ${carImgSource}`);
         animate(imageObject);
         startButton.addEventListener('click', () => {
-            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
                 updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -200,7 +216,7 @@ function initializeAnimation() {
             }
             else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+                if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                     actionText.innerText = "Letartóztattál egy bűnözőt!";
                     updateBalance(1000);
                     updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
@@ -386,7 +402,7 @@ function initializeAnimation() {
         console.log(`kesobbi: ${tF}`);
         smugglerLet === null || smugglerLet === void 0 ? void 0 : smugglerLet.addEventListener('click', () => {
             smugglerDiv.style.display = "none";
-            if (currentPerson.warranted.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
                 actionText.innerText = "Átengedtél egy bűnözőt!";
                 updateBalance(-1000);
                 updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -398,7 +414,6 @@ function initializeAnimation() {
             }
             if (tF) {
                 // smugglerLet!.style.display = "block";
-                console.log("faszomat");
                 let amount = randNum(30, 50) * 1000;
                 updateBalance(amount);
             }
