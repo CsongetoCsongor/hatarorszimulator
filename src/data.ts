@@ -15,7 +15,7 @@
 
 
 // function showData(person: Person, car: Car) { //Képzelt adatbázisból lekérdezi az ember adatait
-    
+
 //     personDescript!.innerHTML += person.description;
 //     emberkep!.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="" />`;
 //     carDescript!.innerHTML += car.description;
@@ -23,11 +23,11 @@
 //     carPlate!.innerHTML += car.licensePlate;
 //     carModel!.innerHTML += car.model;
 //     console.log(autokep);
-    
+
 //     autokep!.innerHTML = `<img id="autokep2" class="rounded-5" src="${car.imgSource}" alt="Autó képe" />`
 //     carImgSource = car.imgSource;
 //     console.log(carImgSource);
-    
+
 
 // }
 // ;
@@ -99,7 +99,7 @@
 //         auto.style.top = `${canvasCenterY - auto.offsetHeight / 2}px`;
 //         auto.style.left = `${canvasCenterX - auto.offsetWidth / 2}px`;
 //     }
-    
+
 //     // Canvas méretének változása esetén újrapozícionálás
 //     // window.addEventListener('resize', positionElements);
 
@@ -164,10 +164,10 @@
 
 //     // Egyetlen kép létrehozása
 //     console.log(`anyad2: ${carImgSource}`);
-    
+
 //     const carImgSrc = carImgSource;
 //     console.log(`anyad: ${carImgSrc}`);
-    
+
 //     if (!carImgSrc) {
 //         console.error('Nincs megfelelő kép az adatlapról!');
 //         return;
@@ -178,9 +178,9 @@
 //     const speedX = 3;
 //     const imageObject = new ImageObject(-imageWidth, y, imageWidth, imageHeight, carImgSrc, speedX);
 //     console.log(carImgSrc);
-    
 
-    
+
+
 
 //     // Állapotváltozók
 //     let isMoving = false;
@@ -196,14 +196,14 @@
 //     // Animációs ciklus
 //     function animate(): void {
 //         ctx!.clearRect(0, 0, canvas.width, canvas.height);
-    
+
 //         // Háttérkép kirajzolása
 //         if (background.complete && background.naturalWidth !== 0) {
 //             ctx!.drawImage(background, 0, 0, canvas.width, canvas.height);
 //         } else {
 //             console.error('A háttérkép még nem áll készen a kirajzolásra!');
 //         }
-    
+
 //         if (!hasReachedMiddle) {
 //             imageObject.update();
 //             if (imageObject.x + imageObject.width >= canvas.width / 2) {
@@ -222,7 +222,7 @@
 //                 auto.style.display = 'none'; // Üzenet eltüntetése
 //             }
 //         }
-    
+
 //         if (!hasReachedEnd) {
 //             animationId = requestAnimationFrame(animate);
 //         }
@@ -245,8 +245,8 @@
 //         setTimeout(() => {
 //             location.reload();
 //         }, 2000);
-        
-        
+
+
 //     });
 
 //     // Ablakméret változás kezelése
@@ -264,8 +264,8 @@ import Person from "./person.js";
 import Car from "./car.js";
 import { generatePersonCarCombination } from "./generatePersonCarCombination.js";
 import { quickTimeEvent } from "./quickTimeEvent.js";
-import  Player  from "./player.js";
-let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../fegyver-kepek-skinek/ak-skin-1.png");
+import Player from "./player.js";
+
 
 let currentPerson: Person;
 let currentCar: Car;
@@ -278,6 +278,14 @@ if (!localStorage.getItem('borderControlBalance')) {
     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
 }
+
+if (!localStorage.getItem('equippedWeapon')) {
+    localStorage.setItem('equippedWeapon', 'fegyver-kepek-skinek/pistol-skin-2.webp');
+    
+}
+let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../" + localStorage.getItem('equippedWeapon')!);
+console.log(localStorage.getItem('equippedWeapon'));
+
 
 const balance = parseInt(localStorage.getItem('borderControlBalance') || '1000');
 
@@ -295,10 +303,10 @@ if (!localStorage.getItem('prevRoundReward')) {
     const prevRoundReward = document.getElementById('prevRoundReward') as HTMLDivElement;
     prevRoundReward.innerHTML = `...`;
 } else {
-    if(localStorage.getItem('prevRoundReward') == null) {
-        
+    if (localStorage.getItem('prevRoundReward') == null) {
+
     }
-    else if(parseInt(localStorage.getItem('prevRoundReward') || '') > 0) {
+    else if (parseInt(localStorage.getItem('prevRoundReward') || '') > 0) {
         const prevRoundReward = document.getElementById('prevRoundReward') as HTMLDivElement;
         prevRoundReward.innerHTML = `+${localStorage.getItem('prevRoundReward')} Ft`;
     }
@@ -310,7 +318,7 @@ if (!localStorage.getItem('prevRoundReward')) {
         const prevRoundReward = document.getElementById('prevRoundReward') as HTMLDivElement;
         prevRoundReward.innerHTML = `${localStorage.getItem('prevRoundReward')} Ft`;
     }
-    
+
 }
 
 // const balance = parseInt(localStorage.getItem('borderControlBalance') || '1000');
@@ -356,17 +364,17 @@ quickTimeEventContainer!.style.display = "none";
 smuggler!.style.display = "none";
 smugglerDiv!.style.display = "none";
 shopWindow.style.display = "none";
-let tF:boolean;
+let tF: boolean;
 
-document.getElementById("shopBtn")?.addEventListener("click", function() {
+document.getElementById("shopBtn")?.addEventListener("click", function () {
     shopWindow.style.display = "flex";
 });
 
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
 canvas.style.backgroundSize = "cover";
-canvas.style.width = "100%";    
-canvas.style.height = "40%";    
+canvas.style.width = "100%";
+canvas.style.height = "40%";
 
 function randNum(min: number, max: number): number {
     // Ensures the minimum and maximum are integers and handles edge cases
@@ -382,14 +390,14 @@ function updateBalance(amount: number) {
 }
 
 function updatePrevRoundMessage(text: string, reward: number) {
-    
+
     localStorage.setItem('prevRoundMessage', text);
     localStorage.setItem('prevRoundReward', String(reward));
     const prevRoundMessage = document.getElementById('prevRoundMessage') as HTMLDivElement;
     const prevRoundReward = document.getElementById('prevRoundReward') as HTMLDivElement;
-    
+
     prevRoundMessage.innerHTML = text;
-    if(reward > 0) {
+    if (reward > 0) {
         prevRoundReward.innerHTML = "+" + String(reward) + " Ft";
     }
     else if (reward < 0) {
@@ -398,22 +406,34 @@ function updatePrevRoundMessage(text: string, reward: number) {
     else {
         prevRoundReward.innerHTML = String(reward) + " Ft";
     }
-    
+
     return text;
 }
+
+// if (!localStorage.getItem('weapons')) {
+//     localStorage.setItem('borderControlBalance', '1000');
+//     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+//     balanceDiv.innerHTML = `1000 Ft`;
+// } else {
+//     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
+//     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
+// }
 
 function saveArrayToLocalStorage(key: string, array: any[]): void {
     // Convert the array to a JSON string
     localStorage.setItem(key, JSON.stringify(array));
-  }
-  
-  // Function to get an array from localStorage
-  function getArrayFromLocalStorage(key: string): any[] {
+}
+
+// Function to get an array from localStorage
+function getArrayFromLocalStorage(key: string): any[] {
     // Get the JSON string from localStorage and parse it back to an array
     const storedArray = localStorage.getItem(key);
     return storedArray ? JSON.parse(storedArray) : [];  // Return an empty array if nothing is stored
-  }
-  
+}
+
+
+
+
 
 function showData(person: Person, car: Car) {
     personDescript!.innerHTML += person.description;
@@ -454,7 +474,7 @@ async function initializeAnimation() {
     animate(imageObject);
 
     startButton.addEventListener('click', () => {
-        if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
+        if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -466,19 +486,19 @@ async function initializeAnimation() {
         }
         imageObject.moveToEnd();
 
-                setTimeout(() => {
+        setTimeout(() => {
             location.reload();
         }, 2000);
-        
+
     });
 
-    letartoztatButton.addEventListener('click', async () => {        
-        if(randNum(1, 10) < 4) {
+    letartoztatButton.addEventListener('click', async () => {
+        if (randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -493,7 +513,7 @@ async function initializeAnimation() {
         }
         else {
             ctx!.clearRect(0, 0, canvas.width, canvas.height);
-            if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
+            if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                 actionText.innerText = "Letartóztattál egy bűnözőt!";
                 updateBalance(1000);
                 updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
@@ -504,7 +524,7 @@ async function initializeAnimation() {
                 updatePrevRoundMessage("Ártatlan embert tartóztattál le.", -1000);
             }
         }
-           
+
         setTimeout(() => {
             location.reload();
         }, 2000);
@@ -512,12 +532,12 @@ async function initializeAnimation() {
 
     emberadatButton.addEventListener('click', async () => {
         emberadatButton.style.visibility = "hidden";
-        if(randNum(1, 10) < 4) {
+        if (randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -536,7 +556,7 @@ async function initializeAnimation() {
                 }, 2000);
             }
         }
-        else { 
+        else {
             personName!.innerHTML += '<span class="fw-bold">Név: </span>' + currentPerson.name;
             personBorn!.innerHTML += '<span class="fw-bold">Születési dátum: </span>' + currentPerson.age.toString();
             personNationality!.innerHTML += '<span class="fw-bold">Nemzetiség: </span>' + currentPerson.nationality;
@@ -548,12 +568,12 @@ async function initializeAnimation() {
     autoadatButton.addEventListener('click', async () => {
         autoadatButton.style.visibility = "hidden";
 
-        if(randNum(1, 10) < 4) {
+        if (randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -572,19 +592,19 @@ async function initializeAnimation() {
                 }, 2000);
             }
         }
-        else { 
-            carWarrant!.innerHTML += currentCar.warranted.length > 0 ? '<span class="fw-bold">Körözött: '+currentCar.warranted+'</span>' : '<span class="fw-bold">Nem körözött</span>';
+        else {
+            carWarrant!.innerHTML += currentCar.warranted.length > 0 ? '<span class="fw-bold">Körözött: ' + currentCar.warranted + '</span>' : '<span class="fw-bold">Nem körözött</span>';
         }
     });
 
     atkutatasButton.addEventListener('click', async () => {
         atkutatasButton.style.visibility = "hidden";
-        if(randNum(1, 10) < 4) {
+        if (randNum(1, 10) < 4) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -603,23 +623,23 @@ async function initializeAnimation() {
                 }, 2000);
             }
         }
-        else { 
-            if(currentCar.smuggler.length > 0){
-                smugglerText!.innerHTML =  '<span class="fw-bold">Ezt találtad: '+currentCar.smuggler+'</span>'
-                if(randNum(1, 3) > 1){
+        else {
+            if (currentCar.smuggler.length > 0) {
+                smugglerText!.innerHTML = '<span class="fw-bold">Ezt találtad: ' + currentCar.smuggler + '</span>'
+                if (randNum(1, 3) > 1) {
                     smugglerLet!.style.display = "none";
 
                 }
-                else{
+                else {
                     tF = true;
                     smugglerText2!.innerHTML = 'A csempész ajánlott egy köteg pénzt ha átengeded.';
 
                 }
             }
-            else{
-                 smugglerText!.innerHTML = '<span class="fw-bold">Nem találtál semmi illegálisat</span>' ;
-                 smugglerJail!.style.display = "none";
-                 smugglerLet!.style.display = "block";
+            else {
+                smugglerText!.innerHTML = '<span class="fw-bold">Nem találtál semmi illegálisat</span>';
+                smugglerJail!.style.display = "none";
+                smugglerLet!.style.display = "block";
 
             }
             smuggler!.style.display = "block";
@@ -627,18 +647,18 @@ async function initializeAnimation() {
 
 
         }
-        
+
         console.log(tF);
     });
 
     papirokButton.addEventListener('click', async () => {
         papirokButton.style.visibility = "hidden";
-        if(randNum(1, 3) > 1) {
+        if (randNum(1, 3) > 1) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -657,21 +677,21 @@ async function initializeAnimation() {
                 }, 2000);
             }
         }
-        else { 
+        else {
             carWeight!.innerHTML = '<span class="fw-bold">Súly: </span>' + currentCar.weight;
             carHP!.innerHTML = '<span class="fw-bold">Lóerő: </span>' + currentCar.HP;
         }
     });
 
-    smugglerJail!.addEventListener('click', async () => {  
+    smugglerJail!.addEventListener('click', async () => {
         smugglerDiv!.style.display = "none";
-              
-        if(randNum(1, 3) > 1) {
+
+        if (randNum(1, 3) > 1) {
             quickTimeEventContainer!.style.display = "block";
             let quickTimeEventFinish = await quickTimeEvent(player);
             console.log(quickTimeEventFinish + "a quick time event");
-            
-            if(quickTimeEventFinish == true) {
+
+            if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
                 updateBalance(10000);
@@ -691,19 +711,19 @@ async function initializeAnimation() {
         }
         smuggler!.style.display = "none";
         smugglerDiv!.style.display = "none";
-           
+
         setTimeout(() => {
             location.reload();
         }, 2000);
     });
 
     console.log(`kesobbi: ${tF}`);
-    
 
-    smugglerLet?.addEventListener('click', ()=>{
+
+    smugglerLet?.addEventListener('click', () => {
         smugglerDiv!.style.display = "none";
 
-        if(currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
+        if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
@@ -715,25 +735,25 @@ async function initializeAnimation() {
             updatePrevRoundMessage("Elengedtél egy ártatlan embert.", 1000);
         }
 
-        if(tF) {
+        if (tF) {
             // smugglerLet!.style.display = "block";
-            
-            
-            let amount = randNum(30,50) *1000;
+
+
+            let amount = randNum(30, 50) * 1000;
             updateBalance(amount);
         }
-    
+
 
         smuggler!.style.display = "none";
         smugglerDiv!.style.display = "none";
         imageObject.moveToEnd();
 
-                setTimeout(() => {
+        setTimeout(() => {
             location.reload();
         }, 2000);
     });
 
-    smugglerClose?.addEventListener('click', ()=>{
+    smugglerClose?.addEventListener('click', () => {
         smuggler!.style.display = "none";
         smugglerDiv!.style.display = "none";
 
@@ -805,8 +825,71 @@ function animate(imageObject: ImageObject): void {
     requestAnimationFrame(frame);
 }
 
+function checkSameImgId(ide: string) {
+    Array.from(document.getElementsByTagName("img")).forEach(element => {
+        if(element.id.slice(0, -3) == ide.slice(0, -7)) {
+            return element.src;
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPersonData();
+    console.log(getArrayFromLocalStorage("weapons"));
+
+    document.querySelectorAll(".itemActions").forEach(span => {
+        if (getArrayFromLocalStorage("weapons")?.includes(span.id.slice(0, -7))) {
+            if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == span.id.slice(0, -7)) {
+                span.innerHTML = `
+                <button class="btn btn-warning">Felszerelve</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+            }
+            else {
+                span.innerHTML = `
+                <button class="useWeapon" id=${checkSameImgId(span.id)}>Használat</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+            }
+
+        }
+        else {
+            span.innerHTML = `
+                <button class="btn btn-secondary">Használat</button>
+                <button class="buyBtn" id="${span.id.slice(0, -7)}">Megveszem</button>
+            `;
+        }
+    });
+
+    document.querySelectorAll(".buyBtn").forEach(button => {
+        button.addEventListener("click", function () {
+            console.log(button.id);
+            if (button.id && !getArrayFromLocalStorage("weapons")?.includes(button.id)) {
+                let currentWeapons: string[] = getArrayFromLocalStorage('weapons');
+                currentWeapons.push(button.id)
+                saveArrayToLocalStorage('weapons', currentWeapons);
+                // console.log("fegyvert vettél: "+button.id);
+                console.log(currentWeapons);
+                button.parentElement!.innerHTML = `
+                    <button class="useWeapon">Használat</button>
+                    <button class="buyBtn btn btn-danger">Birtoklod</button>
+                `;
+            }
+        })
+    });
+
+    document.querySelectorAll(".useWeapon").forEach(button => {
+        button.addEventListener("click", function () {
+            console.log(button.parentElement!.id);
+            
+                localStorage.setItem("equippedWeapon", button.id);
+                button.parentElement!.innerHTML = `
+                <button class="btn btn-warning">Felszerelve</button>
+                <button class="buyBtn btn btn-danger">Birtoklod</button>
+            `;
+            
+        })
+    });
 });
 
 
