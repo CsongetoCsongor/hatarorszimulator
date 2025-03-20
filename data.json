@@ -5,7 +5,7 @@
             "name": "Alaptomos Aladár",
             "nationality": "Magyar",
             "sex": "Férfi",
-            "age": 34,
+            "age": "1991.04.26.",
             "warranted": ["Csempészet"],
             "description": "Vékony testalkatú, világos bőrszínű, rövid, sötétbarna hajú. Sötétkék farmernadrágot és fekete bőrcipőt visel, fehér inggel. Mosolygós, de inkább visszafogott, kicsit feszültnek tűnik.",
             "imgSource": "emberek-mugshots/white-man-5.webp"
@@ -15,7 +15,7 @@
             "name": "Jürgen Schwartzarbeiten",
             "nationality": "Német",
             "sex": "Férfi",
-            "age": 78,
+            "age": "1947.01.19.",
             "warranted": [],
             "description": "Közepes magasságú, vékony férfi, akinek sötétbarna haját már elhalványította az idő. Az arcán érezhetőek az évek nyomai, de még mindig elegáns megjelenésű, öltönyben. Halkan beszél, mozdulatai kifinomultak.",
             "imgSource": "emberek-mugshots/white-man-6.jpg"
@@ -25,7 +25,7 @@
             "name": "DeShawn Green",
             "nationality": "Zambia",
             "sex": "Férfi",
-            "age": 42,
+            "age": "1983.09.11.",
             "warranted": ["Rablás"],
             "description": "Kancsal, kopasz, vékony férfi. Kissé zavartnak tűnik, dadogva beszél. Szakadt ruhákat visel.",
             "imgSource": "emberek-mugshots/black-man-1.jpg"
@@ -35,7 +35,7 @@
             "name": "Tyrone Brown",
             "nationality": "Niger",
             "sex": "Férfi",
-            "age": 28,
+            "age": "1997.12.02.",
             "warranted": [],
             "description": "Közepesen magas, kissé túlsúlyos férfi. Mosolygós, jó kedvűnek tűnik.",
             "imgSource": "emberek-mugshots/black-man-2.jpg"
@@ -45,7 +45,7 @@
             "name": "Terrance Michelangelo",
             "nationality": "Uganda",
             "sex": "Férfi",
-            "age": 17,
+            "age": "2008.06.13.",
             "warranted": [],
             "description": "Tininindzsa kinézetű nagydarab, fekete úriember. Gorilla testalkatával kitölti az autó egészét, alig fér el. Fehér izomtrikó van rajta egy gyerekméretű sapkával ami csak a feje búbját takarja.",
             "imgSource": "emberek-mugshots/black-man-3.png"
@@ -55,7 +55,7 @@
             "name": "Jamal Williams",
             "nationality": "Elefántcsontpart",
             "sex": "Férfi",
-            "age": 68,
+            "age": "1957.03.27.",
             "warranted": [],
             "description": "Közepes magasságú, vékony férfi. Ingben, zakóban van, jóvágású úriember.",
             "imgSource": "emberek-mugshots/black-man-4.jpg"
@@ -65,7 +65,7 @@
             "name": "Darius Anderson",
             "nationality": "Amerikai",
             "sex": "Férfi",
-            "age": 19,
+            "age": "2005.07.07.",
             "warranted": ["Drog birtoklás"],
             "description": "Izmos testalkatú, közepes magasságú férfi. Sok tetoválás van rajta, nyugodtnak tűnik. Öltözete drágának, márkásnak tűnik.",
             "imgSource": "emberek-mugshots/black-man-5.jpg"
@@ -75,7 +75,7 @@
             "name": "Daquavious Pork",
             "nationality": "Kenya",
             "sex": "Férfi",
-            "age": 53,
+            "age": "1972.11.05.",
             "warranted": ["Pedofília"],
             "description": "Alacsony magasságú, vékony férfi. Furcsa öltözete van és picit furcsán is viselkedik. Suttogva beszél, de különösebb dolgot nem tett.",
             "imgSource": "emberek-mugshots/black-man-6.webp"
@@ -85,7 +85,7 @@
             "name": "Christopher Thompson",
             "nationality": "Amerikai",
             "sex": "Férfi",
-            "age": 43,
+            "age": "1982.04.12.",
             "warranted": [],
             "description": "Alacsony magasságú, kissé túlsúlyos férfi, haja rövid, barna. Le akart pacsizni veled.",
             "imgSource": "emberek-mugshots/white-man-1.png"
@@ -95,7 +95,7 @@
             "name": "Krizantusz Takács",
             "nationality": "Magyar",
             "sex": "Férfi",
-            "age": 54,
+            "age": "1971.09.21.",
             "warranted": [],
             "description": "Közepes magasságú férfi, haja szinte sárga, rövid. Fogai hatalmasak, nem tesz egyéb dolgot, normálisan viselkedik.",
             "imgSource": "emberek-mugshots/white-man-2.png"
@@ -105,7 +105,7 @@
             "name": "Nintendo Rostás",
             "nationality": "Magyar",
             "sex": "Férfi",
-            "age": 60,
+            "age": "1965.01.04.",
             "warranted": [],
             "description": "Magas vékony férfi, hosszú őszülő szőke haja van. Nem sokat aludhatott, igen megviseltnek tűnik.",
             "imgSource": "emberek-mugshots/white-man-3.png"
@@ -115,7 +115,7 @@
             "name": "Chris Walker",
             "nationality": "Britt",
             "sex": "Férfi",
-            "age": 23,
+            "age": "2002.06.25.",
             "warranted": ["Sorozatgyilkos"],
             "description": "Rövid, barna hajú kikondizott férfi, rendkívül alacsony.",
             "imgSource": "emberek-mugshots/white-man-4.jpg"
@@ -125,7 +125,7 @@
             "name": "Rafael Hart",
             "nationality": "Amerikai",
             "sex": "Férfi",
-            "age": 29,
+            "age": "1996.02.23.",
             "warranted": [],
             "description": "Vékony, magas, rendkívül helyes úriember, haja szinte kopasz, vannak tetoválásai.",
             "imgSource": "emberek-mugshots/lightskin-1.jpg"
