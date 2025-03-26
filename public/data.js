@@ -525,54 +525,185 @@ function checkSameImgId(ide) {
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     yield loadPersonData();
     console.log(getArrayFromLocalStorage("weapons"));
-    document.querySelectorAll(".itemActions").forEach(span => {
-        var _a;
-        if ((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(span.id.slice(0, -7))) {
-            if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == span.id.slice(0, -7)) {
-                span.innerHTML = `
-                <button class="btn btn-warning">Felszerelve</button>
-                <button class="buyBtn btn btn-danger">Birtoklod</button>
-            `;
-            }
-            else {
-                span.innerHTML = `
-                <button class="useWeapon" id=${checkSameImgId(span.id)}>Használat</button>
-                <button class="buyBtn btn btn-danger">Birtoklod</button>
-            `;
-            }
-        }
-        else {
-            span.innerHTML = `
-                <button class="btn btn-secondary">Használat</button>
-                <button class="buyBtn" id="${span.id.slice(0, -7)}">Megveszem</button>
-            `;
-        }
-    });
+    // document.querySelectorAll(".itemActions").forEach(span => {
+    //     if (getArrayFromLocalStorage("weapons")?.includes(span.id.slice(0, -7))) {
+    //         if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == span.id.slice(0, -7)) {
+    //             span.innerHTML = `
+    //             <button class="btn btn-warning">Felszerelve</button>
+    //             <button class="buyBtn btn btn-danger">Birtoklod</button>
+    //         `;
+    //         }
+    //         else {
+    //             span.innerHTML = `
+    //             <button class="useWeapon" id=${checkSameImgId(span.id)}>Használat</button>
+    //             <button class="buyBtn btn btn-danger">Birtoklod</button>
+    //         `;
+    //         }
+    //     }
+    //     else {
+    //         span.innerHTML = `
+    //             <button class="btn btn-secondary">Használat</button>
+    //             <button class="buyBtn" id="${span.id.slice(0, -7)}">Megveszem</button>
+    //         `;
+    //     }
+    // });
+    // localStorage.clear();
     document.querySelectorAll(".buyBtn").forEach(button => {
+        var _a;
+        let htmlButton = button;
+        if ((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id)) {
+            button.innerHTML = 'Megvetted';
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-danger');
+        }
         button.addEventListener("click", function () {
             var _a;
-            console.log(button.id);
-            if (button.id && !((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id))) {
+            if (button.id && !((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id)) && balance >= parseInt(htmlButton.dataset.price || "0")) {
                 let currentWeapons = getArrayFromLocalStorage('weapons');
                 currentWeapons.push(button.id);
                 saveArrayToLocalStorage('weapons', currentWeapons);
+                button.innerHTML = 'Megvetted';
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-danger');
                 // console.log("fegyvert vettél: "+button.id);
                 console.log(currentWeapons);
-                button.parentElement.innerHTML = `
-                    <button class="useWeapon">Használat</button>
-                    <button class="buyBtn btn btn-danger">Birtoklod</button>
-                `;
+                document.querySelectorAll(".useWeapon").forEach(button => {
+                    var _a;
+                    if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == button.id.slice(0, -4)) {
+                        button.innerHTML = 'Felszerelve';
+                        button.classList.remove('btn-warning');
+                        button.classList.add('btn-success');
+                    }
+                    else {
+                        if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id.slice(0, -4)))) {
+                            button.innerHTML = 'Nem birtoklod';
+                            button.classList.remove('btn-warning');
+                            button.classList.add('btn-secondary');
+                        }
+                        else {
+                            button.innerHTML = 'Használat';
+                            button.classList.remove('btn-secondary');
+                            button.classList.add('btn-warning');
+                        }
+                    }
+                    button.addEventListener("click", function () {
+                        var _a;
+                        if ((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id.slice(0, -4))) {
+                            if (localStorage.getItem("equippedWeapon")) {
+                                if (localStorage.getItem("equippedWeapon") != button.id.slice(0, -4)) {
+                                    localStorage.setItem("equippedWeapon", button.id.slice(0, -4));
+                                    document.querySelectorAll(".useWeapon").forEach(button2 => {
+                                        var _a;
+                                        if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button2.id.slice(0, -4)))) {
+                                            button2.innerHTML = 'Nem birtoklod';
+                                            button2.classList.remove('btn-warning');
+                                            button2.classList.add('btn-secondary');
+                                        }
+                                        else {
+                                            button2.innerHTML = 'Használat';
+                                            button2.classList.remove('btn-secondary');
+                                            button2.classList.add('btn-warning');
+                                        }
+                                    });
+                                    console.log("Felszerelve: " + button.id.slice(0, -4));
+                                    button.innerHTML = 'Felszerelve';
+                                    button.classList.remove('btn-warning');
+                                    button.classList.add('btn-success');
+                                }
+                            }
+                            else {
+                                localStorage.setItem("equippedWeapon", button.id.slice(0, -4));
+                                document.querySelectorAll(".useWeapon").forEach(button2 => {
+                                    var _a;
+                                    if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button2.id.slice(0, -4)))) {
+                                        button2.innerHTML = 'Nem birtoklod';
+                                        button2.classList.remove('btn-warning');
+                                        button2.classList.add('btn-secondary');
+                                    }
+                                    else {
+                                        button2.innerHTML = 'Használat';
+                                        button2.classList.remove('btn-success');
+                                        button2.classList.add('btn-secondary');
+                                        button2.classList.add('btn-warning');
+                                    }
+                                });
+                                console.log("Felszerelve: " + button.id.slice(0, -4));
+                                button.innerHTML = 'Felszerelve';
+                                button.classList.remove('btn-warning');
+                                button.classList.add('btn-success');
+                            }
+                        }
+                    });
+                });
             }
         });
     });
     document.querySelectorAll(".useWeapon").forEach(button => {
+        var _a;
+        if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == button.id.slice(0, -4)) {
+            button.innerHTML = 'Felszerelve';
+            button.classList.remove('btn-warning');
+            button.classList.add('btn-success');
+        }
+        else {
+            if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id.slice(0, -4)))) {
+                button.innerHTML = 'Nem birtoklod';
+                button.classList.remove('btn-warning');
+                button.classList.add('btn-secondary');
+            }
+            else {
+                button.innerHTML = 'Használat';
+                button.classList.remove('btn-secondary');
+                button.classList.add('btn-warning');
+            }
+        }
         button.addEventListener("click", function () {
-            console.log(button.parentElement.id);
-            localStorage.setItem("equippedWeapon", button.id);
-            button.parentElement.innerHTML = `
-                <button class="btn btn-warning">Felszerelve</button>
-                <button class="buyBtn btn btn-danger">Birtoklod</button>
-            `;
+            var _a;
+            if ((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button.id.slice(0, -4))) {
+                if (localStorage.getItem("equippedWeapon")) {
+                    if (localStorage.getItem("equippedWeapon") != button.id.slice(0, -4)) {
+                        localStorage.setItem("equippedWeapon", button.id.slice(0, -4));
+                        document.querySelectorAll(".useWeapon").forEach(button2 => {
+                            var _a;
+                            if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button2.id.slice(0, -4)))) {
+                                button2.innerHTML = 'Nem birtoklod';
+                                button2.classList.remove('btn-warning');
+                                button2.classList.add('btn-secondary');
+                            }
+                            else {
+                                button2.innerHTML = 'Használat';
+                                button2.classList.remove('btn-secondary');
+                                button2.classList.add('btn-warning');
+                            }
+                        });
+                        console.log("Felszerelve: " + button.id.slice(0, -4));
+                        button.innerHTML = 'Felszerelve';
+                        button.classList.remove('btn-warning');
+                        button.classList.add('btn-success');
+                    }
+                }
+                else {
+                    localStorage.setItem("equippedWeapon", button.id.slice(0, -4));
+                    document.querySelectorAll(".useWeapon").forEach(button2 => {
+                        var _a;
+                        if (!((_a = getArrayFromLocalStorage("weapons")) === null || _a === void 0 ? void 0 : _a.includes(button2.id.slice(0, -4)))) {
+                            button2.innerHTML = 'Nem birtoklod';
+                            button2.classList.remove('btn-warning');
+                            button2.classList.add('btn-secondary');
+                        }
+                        else {
+                            button2.innerHTML = 'Használat';
+                            button2.classList.remove('btn-success');
+                            button2.classList.add('btn-secondary');
+                            button2.classList.add('btn-warning');
+                        }
+                    });
+                    console.log("Felszerelve: " + button.id.slice(0, -4));
+                    button.innerHTML = 'Felszerelve';
+                    button.classList.remove('btn-warning');
+                    button.classList.add('btn-success');
+                }
+            }
         });
     });
 }));
