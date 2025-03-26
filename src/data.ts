@@ -270,6 +270,18 @@ import Player from "./player.js";
 let currentPerson: Person;
 let currentCar: Car;
 
+function saveArrayToLocalStorage(key: string, array: any[]): void {
+    // Convert the array to a JSON string
+    localStorage.setItem(key, JSON.stringify(array));
+}
+
+// Function to get an array from localStorage
+function getArrayFromLocalStorage(key: string): any[] {
+    // Get the JSON string from localStorage and parse it back to an array
+    const storedArray = localStorage.getItem(key);
+    return storedArray ? JSON.parse(storedArray) : [];  // Return an empty array if nothing is stored
+}
+
 if (!localStorage.getItem('borderControlBalance')) {
     localStorage.setItem('borderControlBalance', '1000');
     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
@@ -281,6 +293,7 @@ if (!localStorage.getItem('borderControlBalance')) {
 
 if (!localStorage.getItem('equippedWeapon')) {
     localStorage.setItem('equippedWeapon', 'fegyver-kepek-skinek/pistol-skin-2.webp');
+    saveArrayToLocalStorage('weapons', ['fegyver-kepek-skinek/pistol-skin-2.webp']);
     
 }
 let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../" + localStorage.getItem('equippedWeapon')!);
@@ -368,6 +381,8 @@ let tF: boolean;
 
 document.getElementById("shopBtn")?.addEventListener("click", function () {
     shopWindow.style.display = "flex";
+    const shopBalance = document.getElementById('shopBalance') as HTMLElement;
+    shopBalance.innerHTML = `Egyenleg: ${balance} Ft`;
 });
 
 // Beállítjuk a canvas háttérképét
@@ -386,6 +401,8 @@ function updateBalance(amount: number) {
     localStorage.setItem('borderControlBalance', newBalance.toString());
     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
     balanceDiv.innerHTML = `${newBalance} Ft`;
+    const shopBalance = document.getElementById('shopBalance') as HTMLElement;
+    shopBalance.innerHTML = `Egyenleg: ${newBalance} Ft`;
     return newBalance;
 }
 
@@ -421,17 +438,7 @@ function updatePrevRoundMessage(text: string, reward: number) {
 //     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
 // }
 
-function saveArrayToLocalStorage(key: string, array: any[]): void {
-    // Convert the array to a JSON string
-    localStorage.setItem(key, JSON.stringify(array));
-}
 
-// Function to get an array from localStorage
-function getArrayFromLocalStorage(key: string): any[] {
-    // Get the JSON string from localStorage and parse it back to an array
-    const storedArray = localStorage.getItem(key);
-    return storedArray ? JSON.parse(storedArray) : [];  // Return an empty array if nothing is stored
-}
 
 
 
@@ -875,7 +882,7 @@ function checkSameImgId(ide: string) {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPersonData();
     console.log(getArrayFromLocalStorage("weapons"));
-
+    
     // document.querySelectorAll(".itemActions").forEach(span => {
     //     if (getArrayFromLocalStorage("weapons")?.includes(span.id.slice(0, -7))) {
     //         if (localStorage.getItem("equippedWeapon") && localStorage.getItem("equippedWeapon") == span.id.slice(0, -7)) {
@@ -901,6 +908,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // });
 
     // localStorage.clear();
+
+    document.getElementById("btnShopClose")!.addEventListener("click", function () {
+        location.reload();
+    });
     
     document.querySelectorAll(".buyBtn").forEach(button => {
         let htmlButton = button as HTMLElement
@@ -919,6 +930,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             button.innerHTML = 'Megvetted'
             button.classList.remove('btn-primary');
             button.classList.add('btn-danger');
+            updateBalance((-1) * parseInt(htmlButton.dataset.price || "0"));
             // console.log("fegyvert vettél: "+button.id);
             console.log(currentWeapons);
 

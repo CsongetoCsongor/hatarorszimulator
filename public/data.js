@@ -16,6 +16,16 @@ import { quickTimeEvent } from "./quickTimeEvent.js";
 import Player from "./player.js";
 let currentPerson;
 let currentCar;
+function saveArrayToLocalStorage(key, array) {
+    // Convert the array to a JSON string
+    localStorage.setItem(key, JSON.stringify(array));
+}
+// Function to get an array from localStorage
+function getArrayFromLocalStorage(key) {
+    // Get the JSON string from localStorage and parse it back to an array
+    const storedArray = localStorage.getItem(key);
+    return storedArray ? JSON.parse(storedArray) : []; // Return an empty array if nothing is stored
+}
 if (!localStorage.getItem('borderControlBalance')) {
     localStorage.setItem('borderControlBalance', '1000');
     const balanceDiv = document.getElementById('balanceDiv');
@@ -27,6 +37,7 @@ else {
 }
 if (!localStorage.getItem('equippedWeapon')) {
     localStorage.setItem('equippedWeapon', 'fegyver-kepek-skinek/pistol-skin-2.webp');
+    saveArrayToLocalStorage('weapons', ['fegyver-kepek-skinek/pistol-skin-2.webp']);
 }
 let player = new Player(0, "neutral", ["../player-arckifejezesek/neutral.png", "../player-arckifejezesek/angry.png"], "../" + localStorage.getItem('equippedWeapon'));
 console.log(localStorage.getItem('equippedWeapon'));
@@ -105,6 +116,8 @@ shopWindow.style.display = "none";
 let tF;
 (_a = document.getElementById("shopBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
     shopWindow.style.display = "flex";
+    const shopBalance = document.getElementById('shopBalance');
+    shopBalance.innerHTML = `Egyenleg: ${balance} Ft`;
 });
 // Beállítjuk a canvas háttérképét
 canvas.style.background = "url('ut2.jpg') no-repeat center center";
@@ -120,6 +133,8 @@ function updateBalance(amount) {
     localStorage.setItem('borderControlBalance', newBalance.toString());
     const balanceDiv = document.getElementById('balanceDiv');
     balanceDiv.innerHTML = `${newBalance} Ft`;
+    const shopBalance = document.getElementById('shopBalance');
+    shopBalance.innerHTML = `Egyenleg: ${newBalance} Ft`;
     return newBalance;
 }
 function updatePrevRoundMessage(text, reward) {
@@ -149,16 +164,6 @@ function updatePrevRoundMessage(text, reward) {
 //     const balanceDiv = document.getElementById('balanceDiv') as HTMLDivElement;
 //     balanceDiv.innerHTML = `${localStorage.getItem('borderControlBalance')} Ft`;
 // }
-function saveArrayToLocalStorage(key, array) {
-    // Convert the array to a JSON string
-    localStorage.setItem(key, JSON.stringify(array));
-}
-// Function to get an array from localStorage
-function getArrayFromLocalStorage(key) {
-    // Get the JSON string from localStorage and parse it back to an array
-    const storedArray = localStorage.getItem(key);
-    return storedArray ? JSON.parse(storedArray) : []; // Return an empty array if nothing is stored
-}
 function showData(person, car) {
     personDescript.innerHTML += person.description;
     emberkep.innerHTML = `<img class="rounded-circle" src="${person.imgSource}" alt="" />`;
@@ -548,6 +553,9 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
     //     }
     // });
     // localStorage.clear();
+    document.getElementById("btnShopClose").addEventListener("click", function () {
+        location.reload();
+    });
     document.querySelectorAll(".buyBtn").forEach(button => {
         var _a;
         let htmlButton = button;
@@ -565,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
                 button.innerHTML = 'Megvetted';
                 button.classList.remove('btn-primary');
                 button.classList.add('btn-danger');
+                updateBalance((-1) * parseInt(htmlButton.dataset.price || "0"));
                 // console.log("fegyvert vettél: "+button.id);
                 console.log(currentWeapons);
                 document.querySelectorAll(".useWeapon").forEach(button => {

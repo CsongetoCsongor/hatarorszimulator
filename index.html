@@ -38,7 +38,9 @@
 
 </div>
 
-<div id="shopcontainer" style="position: absolute; z-index:101;">
+<div id="shopcontainer" style="position: absolute; z-index:101;" class="row align-items-center justify-content-center">
+    
+    
     <div class="product" style="background-color: lightgrey;">
         <img id="pistol2Img" src="fegyver-kepek-skinek/pistol-skin-2.webp" alt="Termék 3" style="background-color: lightgrey;">
         <h3>Pistol</h3>
@@ -46,8 +48,8 @@
         <p>Állapot: Megviselt</p>
         
         <span class="itemActions" id="pistol2Actions">
-            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/pistol-skin-2.web_use">Használat</button>
-            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/pistol-skin-2.web" data-price="10">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/pistol-skin-2.webp_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/pistol-skin-2.webp" data-price="10">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: lightgrey;">
@@ -106,15 +108,15 @@
             <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/shotgun-skin-3.webp" data-price="40000">Megveszem</button>
         </span>
     </div>
-    <!-- <div class="product" style="background-color: darkorchid;">
+    <div class="product" style="background-color: darkorchid;">
         <img id="ak2Img" src="fegyver-kepek-skinek/ak-skin-2.png" alt="Termék 2" style="background-color: darkorchid;">
         <h3>AK</h3>
         <p>Ár: 60000 Ft</p>
         <p>Állapot: Kifogástalan</p>
         
         <span class="itemActions" id="ak2Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/ak-skin-2.png">Használat</button>
-            <button class="buyBtn" id="ak2">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/ak-skin-2.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/ak-skin-2.png">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: darkorchid;">
@@ -124,8 +126,8 @@
         <p>Állapot: Kifogástalan</p>
         
         <span class="itemActions" id="ak4Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/ak-skin-4.png">Használat</button>
-            <button class="buyBtn" id="ak4">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/ak-skin-4.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/ak-skin-4.png">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: fuchsia;">
@@ -135,8 +137,8 @@
         <p>Állapot: Tökéletes</p>
         
         <span class="itemActions" id="ak1Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/ak-skin-1.png">Használat</button>
-            <button class="buyBtn" id="ak1">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/ak-skin-1.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/ak-skin-1.png">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: fuchsia;">
@@ -146,8 +148,8 @@
         <p>Állapot: Tökéletes</p>
         
         <span class="itemActions" id="ak3Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/ak-skin-3.png">Használat</button>
-            <button class="buyBtn" id="ak3">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/ak-skin-3.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/ak-skin-3.png">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: red;">
@@ -157,8 +159,8 @@
         <p>Állapot: Mitikus</p>
         
         <span class="itemActions" id="sniper2Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/sniper-skin-2.png">Használat</button>
-            <button class="buyBtn" id="sniper2">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/sniper-skin-2.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/sniper-skin-2.png">Megveszem</button>
         </span>
     </div>
     <div class="product" style="background-color: gold;">
@@ -168,10 +170,18 @@
         <p>Állapot: Legendás</p>
         
         <span class="itemActions" id="sniper1Actions">
-            <button class="useWeapon" id="fegyver-kepek-skinek/sniper-skin-1.png">Használat</button>
-            <button class="buyBtn" id="sniper1">Megveszem</button>
+            <button class="useWeapon btn btn-warning" id="fegyver-kepek-skinek/sniper-skin-1.png_use">Használat</button>
+            <button class="buyBtn btn btn-primary" id="fegyver-kepek-skinek/sniper-skin-1.png">Megveszem</button>
         </span>
-    </div> -->
+    </div>
+    
+        <div class="col-12 col-md-12">
+            <h1 style="color:white; text-align: center; font-size: 45px;" id="shopBalance">Egyenleg</h1>
+            <button class="btn btn-danger w-100 fs-5" style="height: 50px;" id="btnShopClose">Bezárás</button>
+        </div>
+    
+    
+    
 </div>
 
 
@@ -188,7 +198,7 @@
                     <div class="col">
                         <div id="startBgdiv">
                             <span id="startButton"></span>
-                            <p>Továbbenged</p>
+                            <p class="">Továbbenged</p>
                         </div>
                     </div>
                     <div class="col">
@@ -236,10 +246,10 @@
                     <p id="prevRoundReward">+10000 Ft</p>
                 </div>
                 <div class="col-4 mx-3 col-lg-2" id="shopBtn"
-                    style="width:100px;height:100px;margin:auto; margin-bottom: 0; background-image: url(shoplogo.png); background-size: cover;background-repeat: no-repeat;">
+                    style="z-index: 1000;width:100px;height:100px;margin:auto; margin-bottom: 0; background-image: url(shoplogo.png); background-size: cover;background-repeat: no-repeat;">
                 </div>
-                <div class="col-8 col-lg-4"
-                    style="font-size: 50px; text-align: center; margin: auto; margin-bottom: 0; width: fit-content; z-index: 1000;"
+                <div class="col-8 col-lg-4 zindex-toast"
+                    style="font-size: 50px; text-align: center; margin: auto; margin-bottom: 0; width: fit-content; z-index: 102;"
                     id="balanceDiv">
                 </div>
 
