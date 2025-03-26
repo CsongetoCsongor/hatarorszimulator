@@ -398,10 +398,12 @@ function updatePrevRoundMessage(text: string, reward: number) {
 
     prevRoundMessage.innerHTML = text;
     if (reward > 0) {
+        prevRoundReward.style.color = "green";
         prevRoundReward.innerHTML = "+" + String(reward) + " Ft";
     }
     else if (reward < 0) {
         prevRoundReward.innerHTML = String(reward) + " Ft";
+        prevRoundReward.style.color = "red";
     }
     else {
         prevRoundReward.innerHTML = String(reward) + " Ft";
@@ -476,11 +478,14 @@ async function initializeAnimation() {
     startButton.addEventListener('click', () => {
         if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
+            actionText.style.display = "block";
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
         }
         else {
             actionText.innerText = "Elengedtél egy ártatlan embert.";
+            actionText.style.display = "block";
+
             updateBalance(1000);
             updatePrevRoundMessage("Elengedtél egy ártatlan embert.", 1000);
         }
@@ -501,12 +506,16 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
             }
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
             }
@@ -515,11 +524,15 @@ async function initializeAnimation() {
             ctx!.clearRect(0, 0, canvas.width, canvas.height);
             if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0 || currentCar.smuggler.length > 0) {
                 actionText.innerText = "Letartóztattál egy bűnözőt!";
+            actionText.style.display = "block";
+
                 updateBalance(1000);
                 updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
             }
             else {
                 actionText.innerText = "Ártatlan embert tartóztattál le.";
+            actionText.style.display = "block";
+
                 updateBalance(-1000);
                 updatePrevRoundMessage("Ártatlan embert tartóztattál le.", -1000);
             }
@@ -540,6 +553,8 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
                 setTimeout(() => {
@@ -549,6 +564,8 @@ async function initializeAnimation() {
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
                 setTimeout(() => {
@@ -576,6 +593,8 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
                 setTimeout(() => {
@@ -585,6 +604,8 @@ async function initializeAnimation() {
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
                 setTimeout(() => {
@@ -607,6 +628,8 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
                 setTimeout(() => {
@@ -616,6 +639,8 @@ async function initializeAnimation() {
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
                 setTimeout(() => {
@@ -661,6 +686,8 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
                 setTimeout(() => {
@@ -670,6 +697,8 @@ async function initializeAnimation() {
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
                 setTimeout(() => {
@@ -694,18 +723,24 @@ async function initializeAnimation() {
             if (quickTimeEventFinish == true) {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Lelőtted a támadót!";
+            actionText.style.display = "block";
+
                 updateBalance(10000);
                 updatePrevRoundMessage("Lelőtted a támadót!", 10000);
             }
             else {
                 quickTimeEventContainer!.style.display = "none";
                 actionText.innerText = "Meglőttek!";
+            actionText.style.display = "block";
+
                 updateBalance(-10000);
                 updatePrevRoundMessage("Meglőttek!", -10000);
             }
         }
         else {
             actionText.innerText = "Letartóztattál egy bűnözőt!";
+            actionText.style.display = "block";
+
             updateBalance(1000);
             updatePrevRoundMessage("Letartóztattál egy bűnözőt!", 1000);
         }
@@ -725,12 +760,16 @@ async function initializeAnimation() {
 
         if (currentPerson.warranted.length > 0 || currentCar.warranted.length > 0) {
             actionText.innerText = "Átengedtél egy bűnözőt!";
+            actionText.style.display = "block";
+
             updateBalance(-1000);
             updatePrevRoundMessage("Átengedtél egy bűnözőt!", -1000);
         }
 
         else {
             actionText.innerText = "Elengedtél egy ártatlan embert.";
+            actionText.style.display = "block";
+
             updateBalance(1000);
             updatePrevRoundMessage("Elengedtél egy ártatlan embert.", 1000);
         }

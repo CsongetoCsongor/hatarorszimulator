@@ -45,6 +45,8 @@ canvas {
     border: 2px black solid;
     border-radius: 8px;
     color: white;
+    width: 100%;
+    height: 100%;
 }
 
 #startBgdiv:hover{
@@ -56,11 +58,13 @@ canvas {
 
 #startBgdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #startBgdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -72,6 +76,8 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
     
 }
 
@@ -85,11 +91,13 @@ canvas {
 
 #letartoztatdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #letartoztatdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -102,6 +110,8 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #emberadatdiv:hover{
@@ -114,11 +124,13 @@ canvas {
 
 #emberadatdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #emberadatdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -131,6 +143,8 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #autoadatdiv:hover{
@@ -143,11 +157,13 @@ canvas {
 
 #autoadatdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #autoadatdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -160,6 +176,8 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #atkutatasdiv:hover{
@@ -172,11 +190,13 @@ canvas {
 
 #atkutatasdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #atkutatasdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -189,6 +209,8 @@ canvas {
     padding: 15%;
     border: 2px black solid;
     border-radius: 8px;
+    width: 100%;
+    height: 100%;
 }
 
 #papirokdiv:hover{
@@ -201,11 +223,13 @@ canvas {
 
 #papirokdiv p{
     display: none;
+    font-size: 1rem;
+
 }
 
 #papirokdiv:hover p{
     color: white;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
     display: block;
 }
@@ -303,4 +327,13 @@ canvas {
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #emberadatdiv:hover p{
+        font-size: 0.3rem;
+    }
+    
 }
